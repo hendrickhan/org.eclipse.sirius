@@ -40,9 +40,9 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
 
     private ResourceSet resourceSet;
 
-    private Map<Resource, Collection<Resource>> directlyReferencingResources;
+    private Map<Resource, Collection<Resource>> directlyReferencingResources = new WeakHashMap<>();
 
-    private Map<Resource, Collection<Resource>> directlyReferencedResources;
+    private Map<Resource, Collection<Resource>> directlyReferencedResources = new WeakHashMap<>();
 
     private boolean initialized;
 
@@ -53,10 +53,7 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
      *            the {@link ResourceSet} on which to listens {@link ResourceSet#getResources()} changes
      */
     public LocalResourceCollector(ResourceSet resourceSet) {
-        super();
         this.resourceSet = resourceSet;
-        directlyReferencingResources = new WeakHashMap<Resource, Collection<Resource>>();
-        directlyReferencedResources = new WeakHashMap<Resource, Collection<Resource>>();
     }
 
     @Override
@@ -72,7 +69,7 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
      * @param referencedResource
      *            the specified referenced {@link Resource}
      */
-    public void addInterResourceResourceReference(Resource referencingResource, Resource referencedResource) {
+    private void addInterResourceResourceReference(Resource referencingResource, Resource referencedResource) {
         if (!isAnAirdOrSrmResourceConcerned(referencingResource, referencedResource)) {
             // Update referenced resources
             Collection<Resource> allReferencedResourcesByResource = directlyReferencedResources.get(referencingResource);
@@ -104,14 +101,11 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
      * @param referencedResource
      *            the specified referenced {@link Resource}
      */
-    public void removeInterResourceResourceReference(Resource referencingResource, Resource referencedResource) {
+    private void removeInterResourceResourceReference(Resource referencingResource, Resource referencedResource) {
         directlyReferencedResources.remove(referencingResource);
         directlyReferencingResources.remove(referencedResource);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Collection<Resource> getAllReferencedResources(Resource resource) {
         if (!initialized) {
@@ -122,9 +116,6 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
         return allReferencedResources;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public Collection<Resource> getAllReferencingResources(Resource resource) {
         if (!initialized) {
@@ -149,9 +140,6 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
         return allTransitiveResources;
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void dispose() {
         if (initialized) {
@@ -163,7 +151,7 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
         directlyReferencedResources = null;
     }
 
-    class LocalInverseCrossReferencer extends InverseCrossReferencer {
+    private class LocalInverseCrossReferencer extends InverseCrossReferencer {
 
         private static final long serialVersionUID = 1L;
 
@@ -178,7 +166,7 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
             super.add(eObject, eReference, crossReferencedEObject);
             Resource referencingResource = eObject.eResource();
             Resource referencedResource = crossReferencedEObject.eResource();
-            if (referencingResource != null && referencedResource != null && referencingResource != referencedResource) {
+            if (isReferenceOfInterest(referencedResource, referencingResource)) {
                 if (!isAnAirdOrSrmResourceConcerned(referencingResource, referencedResource)) {
                     Map<EObject, Map<EObject, EStructuralFeature>> referencedEObjects = resourcesRefs.get(referencingResource);
                     if (referencedEObjects == null) {
@@ -207,10 +195,23 @@ public class LocalResourceCollector extends SiriusCrossReferenceAdapterImpl impl
             super.remove(eObject, eReference, crossReferencedEObject);
             Resource referencingResource = eObject.eResource();
             Resource referencedResource = crossReferencedEObject.eResource();
-            if (referencingResource != null && referencedResource != null && referencingResource != referencedResource) {
+            if (isReferenceOfInterest(referencedResource, referencingResource)) {
                 if (!isAnAirdOrSrmResourceConcerned(referencingResource, referencedResource)) {
                     removeInMap(referencedResource, referencingResource, eObject, crossReferencedEObject);
                 }
+            }
+        }
+
+        /**
+         * The only references we are concerned with are between two different non-null and non-representation
+         * resources.
+         */
+        private boolean isReferenceOfInterest(Resource referencedResource, Resource referencingResource) {
+            if (referencedResource == null || referencingResource == null || referencedResource == referencingResource) {
+                return false;
+            } else {
+                // TODO We should also ignore other non-semantic resources
+                return !new ResourceQuery(referencingResource).isRepresentationsResource() && !new ResourceQuery(referencedResource).isRepresentationsResource();
             }
         }
 
