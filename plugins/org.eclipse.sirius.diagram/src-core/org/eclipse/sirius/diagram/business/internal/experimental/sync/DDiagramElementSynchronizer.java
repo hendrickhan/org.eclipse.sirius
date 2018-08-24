@@ -146,7 +146,7 @@ public class DDiagramElementSynchronizer {
      *            true if the element is a border one.
      * @return newly created node.
      */
-    public AbstractDNode createNewNode(DiagramMappingsManager mappingManager, final AbstractDNodeCandidate candidate, final boolean isBorder) {
+    public AbstractDNode createNewNode(DiagramMappingsManager mappingManager, final DNodeCandidate candidate, final boolean isBorder) {
         return createNewNode(mappingManager, candidate, isBorder, -1);
     }
 
@@ -165,7 +165,7 @@ public class DDiagramElementSynchronizer {
      *            the insertion index. give a negative value if you don't care
      * @return newly created node.
      */
-    public AbstractDNode createNewNode(DiagramMappingsManager mappingManager, final AbstractDNodeCandidate candidate, final boolean isBorder, final int insertionIndex) {
+    public AbstractDNode createNewNode(DiagramMappingsManager mappingManager, final DNodeCandidate candidate, final boolean isBorder, final int insertionIndex) {
         final DragAndDropTarget container = candidate.getViewContainer();
         final AbstractDNode newNode = createAbstractNode(container, candidate, isBorder);
         if (insertionIndex > 0) {
@@ -192,7 +192,7 @@ public class DDiagramElementSynchronizer {
      *            true if the element is a border one.
      * @return newly created node.
      */
-    private AbstractDNode createAbstractNode(final DragAndDropTarget container, final AbstractDNodeCandidate candidate, final boolean border) {
+    private AbstractDNode createAbstractNode(final DragAndDropTarget container, final DNodeCandidate candidate, final boolean border) {
         AbstractDNode result = null;
         if (candidate.getMapping() instanceof NodeMapping) {
             final NodeMapping mapping = (NodeMapping) candidate.getMapping();

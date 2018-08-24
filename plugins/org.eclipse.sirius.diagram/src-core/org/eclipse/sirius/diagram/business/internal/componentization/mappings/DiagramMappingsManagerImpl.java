@@ -29,7 +29,7 @@ import org.eclipse.sirius.diagram.business.api.componentization.DiagramDescripti
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManager;
 import org.eclipse.sirius.diagram.business.api.componentization.DiagramMappingsManagerRegistry;
 import org.eclipse.sirius.diagram.business.api.query.DiagramElementMappingQuery;
-import org.eclipse.sirius.diagram.business.internal.experimental.sync.AbstractDNodeCandidate;
+import org.eclipse.sirius.diagram.business.internal.experimental.sync.DNodeCandidate;
 import org.eclipse.sirius.diagram.business.internal.layers.GlobalMappingsTable;
 import org.eclipse.sirius.diagram.business.internal.metamodel.helper.MappingsListVisitor;
 import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
@@ -382,10 +382,10 @@ public final class DiagramMappingsManagerImpl implements DiagramMappingsManager,
 
     private void iterateOnMappings(final List<? extends DiagramElementMapping> mappings, final MappingsListVisitor visitor) {
 
-        final Set<AbstractDNodeCandidate> candidateFilter = new HashSet<>();
+        final Set<DNodeCandidate> candidateFilter = new HashSet<>();
 
         for (final DiagramElementMapping mapping : mappings) {
-            Collection<AbstractDNodeCandidate> candidateElementsProceed = visitor.visit(mapping, candidateFilter);
+            Collection<DNodeCandidate> candidateElementsProceed = visitor.visit(mapping, candidateFilter);
             candidateFilter.addAll(candidateElementsProceed);
         }
     }

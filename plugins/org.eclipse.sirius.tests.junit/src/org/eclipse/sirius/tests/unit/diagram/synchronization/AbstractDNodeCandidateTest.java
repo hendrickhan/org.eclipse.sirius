@@ -14,13 +14,13 @@ import org.eclipse.sirius.common.tools.api.util.RefreshIdsHolder;
 import org.eclipse.sirius.diagram.DNode;
 import org.eclipse.sirius.diagram.DNodeContainer;
 import org.eclipse.sirius.diagram.DiagramFactory;
-import org.eclipse.sirius.diagram.business.internal.experimental.sync.AbstractDNodeCandidate;
+import org.eclipse.sirius.diagram.business.internal.experimental.sync.DNodeCandidate;
 import org.eclipse.sirius.diagram.description.DescriptionFactory;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.tests.support.api.EqualsHashCodeTestCase;
 
 /**
- * Test class for {@link AbstractDNodeCandidate}.
+ * Test class for {@link DNodeCandidate}.
  * 
  * @author dlecan
  */
@@ -54,7 +54,7 @@ public class AbstractDNodeCandidateTest extends EqualsHashCodeTestCase {
         dNode.setActualMapping(nodeMapping);
         dNodeContainer.getOwnedDiagramElements().add(dNode);
 
-        return new AbstractDNodeCandidate(dNode, ids);
+        return new DNodeCandidate(dNode, ids);
     }
 
     /**
@@ -62,7 +62,7 @@ public class AbstractDNodeCandidateTest extends EqualsHashCodeTestCase {
      */
     @Override
     protected Object createNotEqualInstance() throws Exception {
-        return new AbstractDNodeCandidate(null, null, null, ids);
+        return new DNodeCandidate(null, null, null, ids);
     }
 
     /**
@@ -78,11 +78,11 @@ public class AbstractDNodeCandidateTest extends EqualsHashCodeTestCase {
         dNodeContainer.getOwnedDiagramElements().add(node);
         node.setTarget(null);
 
-        AbstractDNodeCandidate candidate1 = new AbstractDNodeCandidate(node, ids);
+        DNodeCandidate candidate1 = new DNodeCandidate(node, ids);
 
         node.setTarget(dNodeContainer);
 
-        AbstractDNodeCandidate candidate2 = new AbstractDNodeCandidate(node, ids);
+        DNodeCandidate candidate2 = new DNodeCandidate(node, ids);
 
         assertFalse(candidate1.equals(candidate2));
     }
@@ -99,11 +99,11 @@ public class AbstractDNodeCandidateTest extends EqualsHashCodeTestCase {
         node.setActualMapping(nodeMapping);
         node.setTarget(dNodeContainer);
 
-        AbstractDNodeCandidate candidate1 = new AbstractDNodeCandidate(node, ids);
+        DNodeCandidate candidate1 = new DNodeCandidate(node, ids);
 
         dNodeContainer.getOwnedDiagramElements().add(node);
 
-        AbstractDNodeCandidate candidate2 = new AbstractDNodeCandidate(node, ids);
+        DNodeCandidate candidate2 = new DNodeCandidate(node, ids);
 
         assertFalse(candidate1.equals(candidate2));
     }

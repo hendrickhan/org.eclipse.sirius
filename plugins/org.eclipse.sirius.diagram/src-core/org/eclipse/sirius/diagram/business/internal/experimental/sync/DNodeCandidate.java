@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2007, 2010 THALES GLOBAL SERVICES.
+ * Copyright (c) 2007, 2018 THALES GLOBAL SERVICES.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -27,7 +27,7 @@ import org.eclipse.sirius.viewpoint.description.AbstractMappingImport;
  * @author cbrun
  * 
  */
-public class AbstractDNodeCandidate {
+public class DNodeCandidate {
     private DragAndDropTarget viewContainer;
 
     private EObject semantic;
@@ -56,7 +56,7 @@ public class AbstractDNodeCandidate {
      * @param ids
      *            the refresh ids holder.
      */
-    public AbstractDNodeCandidate(final AbstractNodeMapping mapping, final EObject semanticElement, final DragAndDropTarget viewContainer, RefreshIdsHolder ids) {
+    public DNodeCandidate(final AbstractNodeMapping mapping, final EObject semanticElement, final DragAndDropTarget viewContainer, RefreshIdsHolder ids) {
         super();
         this.ids = ids;
         this.mapping = mapping;
@@ -73,7 +73,7 @@ public class AbstractDNodeCandidate {
      * @param ids
      *            the refresh ids holder.
      */
-    public AbstractDNodeCandidate(final AbstractDNode diagElement, RefreshIdsHolder ids) {
+    public DNodeCandidate(final AbstractDNode diagElement, RefreshIdsHolder ids) {
         this.ids = ids;
         this.mapping = (AbstractNodeMapping) diagElement.getMapping();
         this.semantic = diagElement.getTarget();
@@ -154,10 +154,10 @@ public class AbstractDNodeCandidate {
         if (obj == null) {
             return false;
         }
-        if (!(obj instanceof AbstractDNodeCandidate)) {
+        if (!(obj instanceof DNodeCandidate)) {
             return false;
         }
-        AbstractDNodeCandidate other = (AbstractDNodeCandidate) obj;
+        DNodeCandidate other = (DNodeCandidate) obj;
         if (rootMapping == null) {
             if (other.rootMapping != null) {
                 return false;
