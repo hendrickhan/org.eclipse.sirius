@@ -31,7 +31,7 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @not-generated now that we have a new type, the dimension edge type
  */
-public class SiriusElementTypes extends ElementInitializers {
+public class SiriusElementTypes {
 
     /**
      * @was-generated
