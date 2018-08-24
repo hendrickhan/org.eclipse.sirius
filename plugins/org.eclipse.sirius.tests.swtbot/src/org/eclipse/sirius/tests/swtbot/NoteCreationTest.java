@@ -35,7 +35,6 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeList2EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.SiriusDescriptionCompartmentEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.SiriusDiagramNameCompartmentEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.SiriusNoteEditPart;
-import org.eclipse.sirius.diagram.ui.tools.api.preferences.SiriusDiagramUiPreferencesKeys;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UIDiagramRepresentation.ZoomLevel;
 import org.eclipse.sirius.tests.swtbot.support.api.business.UILocalSession;
@@ -91,21 +90,13 @@ public class NoteCreationTest extends AbstractSiriusSwtBotGefTestCase {
      */
     protected SWTBotSiriusDiagramEditor editor;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onSetUpBeforeClosingWelcomePage() throws Exception {
         copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL, SESSION_FILE);
-
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
-        changeDiagramUIPreference(SiriusDiagramUiPreferencesKeys.PREF_OLD_UI.name(), true);
 
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, SESSION_FILE);
         localSession = designerPerspective.openSessionFromFile(sessionAirdResource);
@@ -117,9 +108,6 @@ public class NoteCreationTest extends AbstractSiriusSwtBotGefTestCase {
         editor.setSnapToGrid(false);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void tearDown() throws Exception {
         // Restore the default zoom level
@@ -656,9 +644,6 @@ public class NoteCreationTest extends AbstractSiriusSwtBotGefTestCase {
         return current == getDiagramLinkTarget() ? getTableLinkTarget() : getDiagramLinkTarget();
     }
 
-    /**
-     * 
-     */
     private void checkNoteLabelAlignment(SWTBotGefEditPart editPart, DRepresentationDescriptor link) {
         assertNotNull("The edit part shouldn't be null for the note label", editPart);
         EditPart part = editPart.part();
