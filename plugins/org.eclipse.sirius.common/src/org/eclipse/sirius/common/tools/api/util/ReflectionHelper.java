@@ -14,9 +14,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+import java.util.Optional;
 
 /**
  * An helper for all reflection managment.
@@ -120,15 +118,15 @@ public final class ReflectionHelper {
      * @return an option with the Constructor if there is no exception, an empty
      *         option otherwise.
      */
-    public static Option<Constructor> setConstructorVisibleWithoutException(Class<? extends Object> classToModify, Class<?>... parameterTypes) {
+    public static Optional<Constructor> setConstructorVisibleWithoutException(Class<? extends Object> classToModify, Class<?>... parameterTypes) {
         try {
-            return Options.newSome(setConstructorVisible(classToModify, parameterTypes));
+            return Optional.of(setConstructorVisible(classToModify, parameterTypes));
         } catch (SecurityException e) {
             // DO nothing
         } catch (NoSuchMethodException e) {
             // DO nothing
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -141,15 +139,15 @@ public final class ReflectionHelper {
      * @return an option with the Constructor if there is no exception, an empty
      *         option otherwise.
      */
-    public static Option<Field> setFieldVisibleWithoutException(Class<? extends Object> classToModify, String fieldName) {
+    public static Optional<Field> setFieldVisibleWithoutException(Class<? extends Object> classToModify, String fieldName) {
         try {
-            return Options.newSome(setFieldVisible(classToModify, fieldName));
+            return Optional.of(setFieldVisible(classToModify, fieldName));
         } catch (SecurityException e) {
             // DO nothing
         } catch (NoSuchFieldException e) {
             // DO nothing
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -255,14 +253,14 @@ public final class ReflectionHelper {
      *            The name of the searched class
      * @return an empty option if there is no corresponding class, an option with the corresponding class otherwise.
      */
-    public static Option<Class> getClassForNameWithoutException(String className) {
+    public static Optional<Class> getClassForNameWithoutException(String className) {
         try {
             Class foundClass = Class.forName(className);
-            return Options.newSome(foundClass);
+            return Optional.of(foundClass);
         } catch (ClassNotFoundException e) {
             // Do nothing
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -277,14 +275,14 @@ public final class ReflectionHelper {
      * @return an empty option if the instantiation failed, an option with the
      *         new instance otherwise.
      */
-    public static Option<Object> instantiateWithoutException(String className, Class<?>[] parameterTypes, Object[] parameters) {
-        Option<Class> foundClass = ReflectionHelper.getClassForNameWithoutException(className);
-        if (foundClass.some()) {
-            Option<Constructor> osConstructor = ReflectionHelper.setConstructorVisibleWithoutException(foundClass.get(), parameterTypes);
-            if (osConstructor.some()) {
+    public static Optional<Object> instantiateWithoutException(String className, Class<?>[] parameterTypes, Object[] parameters) {
+        Optional<Class> foundClass = ReflectionHelper.getClassForNameWithoutException(className);
+        if (foundClass.isPresent()) {
+            Optional<Constructor> osConstructor = ReflectionHelper.setConstructorVisibleWithoutException(foundClass.get(), parameterTypes);
+            if (osConstructor.isPresent()) {
                 try {
                     Object object = osConstructor.get().newInstance(parameters);
-                    return Options.newSome(object);
+                    return Optional.of(object);
                 } catch (IllegalArgumentException e) {
                     // Do nothing
                 } catch (InstantiationException e) {
@@ -296,7 +294,7 @@ public final class ReflectionHelper {
                 }
             }
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -311,8 +309,8 @@ public final class ReflectionHelper {
      * @return true if the field is set, false otherwise
      */
     public static boolean setFieldValueWithoutException(Object instanceToModify, String fieldName, int newValue) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instanceToModify.getClass(), fieldName);
-        if (field.some()) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instanceToModify.getClass(), fieldName);
+        if (field.isPresent()) {
             try {
                 field.get().setInt(instanceToModify, newValue);
                 return true;
@@ -339,8 +337,8 @@ public final class ReflectionHelper {
      * @return true if the field is set, false otherwise
      */
     public static boolean setFieldValueWithoutException(Object instanceToModify, String fieldName, Object newValue, Class<? extends Object> classToModify) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(classToModify, fieldName);
-        if (field.some()) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(classToModify, fieldName);
+        if (field.isPresent()) {
             try {
                 field.get().set(instanceToModify, newValue);
                 return true;
@@ -365,8 +363,8 @@ public final class ReflectionHelper {
      * @return true if the field is set, false otherwise
      */
     public static boolean setFieldValueWithoutException(Object instanceToModify, String fieldName, Object newValue) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instanceToModify.getClass(), fieldName);
-        if (field.some()) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instanceToModify.getClass(), fieldName);
+        if (field.isPresent()) {
             try {
                 field.get().set(instanceToModify, newValue);
                 return true;
@@ -390,18 +388,18 @@ public final class ReflectionHelper {
      * @return instance value of the field or an empty option if the field does
      *         not exist.
      */
-    public static Option<Object> getFieldValueWithoutException(Object instance, String fieldName) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instance.getClass(), fieldName);
-        if (field.some()) {
+    public static Optional<Object> getFieldValueWithoutException(Object instance, String fieldName) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(instance.getClass(), fieldName);
+        if (field.isPresent()) {
             try {
-                return Options.newSome(field.get().get(instance));
+                return Optional.of(field.get().get(instance));
             } catch (IllegalArgumentException e) {
                 // Do nothing
             } catch (IllegalAccessException e) {
                 // Do nothing
             }
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -414,18 +412,18 @@ public final class ReflectionHelper {
      * @return class static value of the field or an empty option if the field
      *         does not exist.
      */
-    public static Option<Object> getFieldValueWithoutException(Class<? extends Object> klass, String fieldName) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(klass, fieldName);
-        if (field.some()) {
+    public static Optional<Object> getFieldValueWithoutException(Class<? extends Object> klass, String fieldName) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(klass, fieldName);
+        if (field.isPresent()) {
             try {
-                return Options.newSome(field.get().get(null));
+                return Optional.of(field.get().get(null));
             } catch (IllegalArgumentException e) {
                 // Do nothing
             } catch (IllegalAccessException e) {
                 // Do nothing
             }
         }
-        return Options.newNone();
+        return Optional.empty();
     }
 
     /**
@@ -439,18 +437,18 @@ public final class ReflectionHelper {
      *            the class of the declared field
      * @return true if the field is set, false otherwise
      */
-    public static Option<Object> getFieldValueWithoutException(Object instance, String fieldName, Class<? extends Object> classToModify) {
-        Option<Field> field = ReflectionHelper.setFieldVisibleWithoutException(classToModify, fieldName);
-        if (field.some()) {
+    public static Optional<Object> getFieldValueWithoutException(Object instance, String fieldName, Class<? extends Object> classToModify) {
+        Optional<Field> field = ReflectionHelper.setFieldVisibleWithoutException(classToModify, fieldName);
+        if (field.isPresent()) {
             try {
-                return Options.newSome(field.get().get(instance));
+                return Optional.of(field.get().get(instance));
             } catch (IllegalArgumentException e) {
                 // Do nothing
             } catch (IllegalAccessException e) {
                 // Do nothing
             }
         }
-        return Options.newNone();
+        return Optional.empty();
     }
     
 

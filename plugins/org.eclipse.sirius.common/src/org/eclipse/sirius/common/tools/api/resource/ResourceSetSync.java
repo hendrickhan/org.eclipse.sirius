@@ -21,6 +21,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.eclipse.core.resources.IFile;
@@ -46,8 +47,6 @@ import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.sirius.common.tools.DslCommonPlugin;
 import org.eclipse.sirius.common.tools.api.query.NotificationQuery;
 import org.eclipse.sirius.common.tools.internal.resource.WorkspaceBackend;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
 
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Iterators;
@@ -174,8 +173,8 @@ public final class ResourceSetSync extends ResourceSetListenerImpl implements Re
      *            editing domain to inspect.
      * @return an optional synchronizer.
      */
-    public static Option<ResourceSetSync> getResourceSetSync(final TransactionalEditingDomain domain) {
-        return Options.newSome(getResourceSetSync(domain.getResourceSet()));
+    public static Optional<ResourceSetSync> getResourceSetSync(final TransactionalEditingDomain domain) {
+        return Optional.of(getResourceSetSync(domain.getResourceSet()));
     }
 
     private static ResourceSetSync getResourceSetSync(final ResourceSet resourceSet) {

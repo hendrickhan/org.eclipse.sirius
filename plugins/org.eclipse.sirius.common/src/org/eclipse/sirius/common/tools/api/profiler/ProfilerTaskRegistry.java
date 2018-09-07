@@ -13,10 +13,9 @@ package org.eclipse.sirius.common.tools.api.profiler;
 import java.text.MessageFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import org.eclipse.sirius.common.tools.Messages;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
 
 /**
  * An profilerTask registry maintains a mapping between symbolic profilerTask
@@ -42,13 +41,13 @@ public class ProfilerTaskRegistry {
      *            the key
      * @return an option of ProfilerTask
      */
-    public Option<ProfilerTask> get(String key) {
-        Option<ProfilerTask> result = Options.newNone();
+    public Optional<ProfilerTask> get(String key) {
+        Optional<ProfilerTask> result = Optional.empty();
         // can be null
         if (key != null) {
             ProfilerTask profilerTask = getTable().get(key);
             if (profilerTask != null) {
-                result = Options.newSome(profilerTask);
+                result = Optional.of(profilerTask);
             }
         }
         return result;
