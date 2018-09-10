@@ -33,8 +33,8 @@ import org.eclipse.sirius.diagram.sequence.business.internal.util.ParentOperandF
 import org.eclipse.sirius.diagram.sequence.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.sequence.description.FrameMapping;
 import org.eclipse.sirius.diagram.sequence.util.Range;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+
+
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.ui.tools.api.profiler.SiriusTasks;
 
@@ -163,8 +163,8 @@ public abstract class AbstractFrame extends AbstractSequenceNode implements ISeq
      * {@inheritDoc}
      */
     @Override
-    public Option<Lifeline> getLifeline() {
-        return Options.newNone();
+    public java.util.Optional<Lifeline> getLifeline() {
+        return java.util.Optional.empty();
     }
 
     @Override
@@ -203,7 +203,7 @@ public abstract class AbstractFrame extends AbstractSequenceNode implements ISeq
     }
 
     @Override
-    public Option<Operand> getParentOperand() {
+    public java.util.Optional<Operand> getParentOperand() {
         return new ParentOperandFinder(this).getParentOperand();
     }
 

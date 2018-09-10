@@ -10,7 +10,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.swtbot.table;
 
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.Activator;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
@@ -100,8 +100,8 @@ public class SetPropertyOfTableTreeByPropertiesViewTest extends AbstractSiriusSw
         // Step 3: check the properties view title.
         SWTBotView propertiesBot = bot.viewByTitle(PROPERTIES);
         propertiesBot.setFocus();
-        Option<String> title = SWTBotSiriusHelper.getPropertyItemTitle();
-        assertTrue(title.some());
+        java.util.Optional<String> title = SWTBotSiriusHelper.getPropertyItemTitle();
+        assertTrue(title.isPresent());
         assertEquals(cell, title.get());
     }
 
@@ -127,8 +127,8 @@ public class SetPropertyOfTableTreeByPropertiesViewTest extends AbstractSiriusSw
         // Step 3: check the properties view title.
         SWTBotView propertiesBot = bot.viewByTitle(PROPERTIES);
         propertiesBot.setFocus();
-        Option<String> title = SWTBotSiriusHelper.getPropertyItemTitle();
-        assertTrue(title.some());
+        java.util.Optional<String> title = SWTBotSiriusHelper.getPropertyItemTitle();
+        assertTrue(title.isPresent());
         assertEquals(cell, title.get());
     }
 

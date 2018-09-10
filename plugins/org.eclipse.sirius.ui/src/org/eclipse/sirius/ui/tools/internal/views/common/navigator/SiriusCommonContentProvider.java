@@ -53,7 +53,7 @@ import org.eclipse.sirius.business.api.session.SessionListener;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.common.ui.tools.api.navigator.GroupingContentProvider;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.ui.tools.api.views.ViewHelper;
 import org.eclipse.sirius.ui.tools.internal.views.common.FileSessionFinder;
 import org.eclipse.sirius.ui.tools.internal.views.common.SessionWrapperContentProvider;
@@ -204,8 +204,8 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
         shouldAskExtension = true;
 
         if (parentElement instanceof IProject) {
-            Option<ModelingProject> modelingProj = ModelingProject.asModelingProject((IProject) parentElement);
-            if (modelingProj.some()) {
+            java.util.Optional<ModelingProject> modelingProj = ModelingProject.asModelingProject((IProject) parentElement);
+            if (modelingProj.isPresent()) {
                 allChildren.add(new ProjectDependenciesItemImpl(modelingProj.get()));
             }
         } else if (parentElement instanceof IFile) {
@@ -249,8 +249,8 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
         }));
 
         // Modeling project case.
-        Option<ModelingProject> modelingProject = ModelingProject.asModelingProject(parentProject);
-        if (modelingProject.some()) {
+        java.util.Optional<ModelingProject> modelingProject = ModelingProject.asModelingProject(parentProject);
+        if (modelingProject.isPresent()) {
             /* retrieve the session associated to this project */
             Session modelingProjectSession = modelingProject.get().getSession();
             if (modelingProjectSession == null || !modelingProjectSession.isOpen()) {
@@ -292,7 +292,7 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
         if (!SiriusUtil.SESSION_RESOURCE_EXTENSION.equals(parentFile.getFileExtension())) {
             Iterable<Session> transientSessions = Iterables.filter(openedSessions, new TransientSessionPredicate());
             if (!Iterables.isEmpty(transientSessions)) {
-                if (modelingProject.some() || Iterables.size(transientSessions) > 1) {
+                if (modelingProject.isPresent() || Iterables.size(transientSessions) > 1) {
                     Iterables.addAll(fileChildren, transientSessions);
                     shouldAskExtension = false;
                 } else {
@@ -383,8 +383,8 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
         if (session != null && session.isOpen() && session.getSessionResource().getURI().isPlatformResource()) {
             IFile mainAirdFile = WorkspaceSynchronizer.getFile(session.getSessionResource());
 
-            Option<ModelingProject> modelingProj = ModelingProject.asModelingProject(mainAirdFile.getProject());
-            if (modelingProj.some() && res.getURI().isPlatformResource()) {
+            java.util.Optional<ModelingProject> modelingProj = ModelingProject.asModelingProject(mainAirdFile.getProject());
+            if (modelingProj.isPresent() && res.getURI().isPlatformResource()) {
                 IFile file = WorkspaceSynchronizer.getFile(res);
                 if (file != null && file.exists() && modelingProj.get().getProject().equals(file.getProject())) {
                     return file;
@@ -401,8 +401,8 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
         if (session != null && session.isOpen() && session.getSessionResource().getURI().isPlatformResource()) {
             IFile mainAirdFile = WorkspaceSynchronizer.getFile(session.getSessionResource());
 
-            Option<ModelingProject> modelingProj = ModelingProject.asModelingProject(mainAirdFile.getProject());
-            if (modelingProj.some()) {
+            java.util.Optional<ModelingProject> modelingProj = ModelingProject.asModelingProject(mainAirdFile.getProject());
+            if (modelingProj.isPresent()) {
                 parent = new ProjectDependenciesItemImpl(modelingProj.get());
             } else if (new TransientSessionPredicate().apply(session)) {
                 parent = res.getURI().isPlatformResource() ? WorkspaceSynchronizer.getFile(res) : null;
@@ -435,8 +435,8 @@ public class SiriusCommonContentProvider implements ICommonContentProvider {
     public boolean hasChildren(Object element) {
         if (element instanceof IFile) {
             // Show expansion arrows during session load.
-            Option<ModelingProject> modelingProject = ModelingProject.asModelingProject(((IFile) element).getProject());
-            if (modelingProject.some() && modelingProject.get().getSession() == null && modelingProject.get().isValid()) {
+            java.util.Optional<ModelingProject> modelingProject = ModelingProject.asModelingProject(((IFile) element).getProject());
+            if (modelingProject.isPresent() && modelingProject.get().getSession() == null && modelingProject.get().isValid()) {
                 return true;
             }
         }

@@ -60,7 +60,7 @@ import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
 import org.eclipse.sirius.diagram.description.EdgeMapping;
 import org.eclipse.sirius.diagram.description.NodeMapping;
 import org.eclipse.sirius.diagram.util.DiagramSwitch;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tools.api.command.ui.RefreshFilter;
 import org.eclipse.sirius.viewpoint.DRefreshable;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -370,8 +370,8 @@ public class RefreshSiriusElement extends RecordingCommand {
 
         @Override
         public DRefreshable caseDEdge(DEdge object) {
-            Option<EdgeMapping> edgeMapping = new IEdgeMappingQuery(object.getActualMapping()).getEdgeMapping();
-            if (edgeMapping.some()) {
+            java.util.Optional<EdgeMapping> edgeMapping = new IEdgeMappingQuery(object.getActualMapping()).getEdgeMapping();
+            if (edgeMapping.isPresent()) {
                 edgeMapping.get().updateEdge(object);
             }
             return object;

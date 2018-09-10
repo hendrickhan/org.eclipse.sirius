@@ -23,7 +23,7 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.Messages;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.FeatureNotFoundException;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.exception.MetaClassNotFoundException;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tools.api.command.DCommand;
 import org.eclipse.sirius.tools.api.interpreter.InterpreterUtil;
 import org.eclipse.sirius.viewpoint.DRepresentationElement;
@@ -129,8 +129,8 @@ public abstract class AbstractDiagramCommandBuilder extends org.eclipse.sirius.t
      *            .
      */
     protected void addDiagramVariable(final DCommand command, final EObject containerView, final IInterpreter interpreter) {
-        final Option<DDiagram> diag = getDDiagram();
-        if (diag.some()) {
+        final java.util.Optional<DDiagram> diag = getDDiagram();
+        if (diag.isPresent()) {
             command.getTasks().add(new AbstractCommandTask() {
 
                 @Override
@@ -230,5 +230,5 @@ public abstract class AbstractDiagramCommandBuilder extends org.eclipse.sirius.t
      * 
      * @return the current DDiagram.
      */
-    protected abstract Option<DDiagram> getDDiagram();
+    protected abstract java.util.Optional<DDiagram> getDDiagram();
 }

@@ -2738,7 +2738,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.LayoutOptionImpl <em>Layout
-     * Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.LayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getLayoutOption()
@@ -2771,7 +2771,7 @@ public interface DescriptionPackage extends EPackage {
     int LAYOUT_OPTION__DESCRIPTION = 2;
 
     /**
-     * The number of structural features of the '<em>Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -2781,7 +2781,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.BooleanLayoutOptionImpl
-     * <em>Boolean Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Boolean Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.BooleanLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getBooleanLayoutOption()
@@ -2822,7 +2822,7 @@ public interface DescriptionPackage extends EPackage {
     int BOOLEAN_LAYOUT_OPTION__VALUE = DescriptionPackage.LAYOUT_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Boolean Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Boolean Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -2832,7 +2832,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.StringLayoutOptionImpl <em>String
-     * Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.StringLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getStringLayoutOption()
@@ -2873,7 +2873,7 @@ public interface DescriptionPackage extends EPackage {
     int STRING_LAYOUT_OPTION__VALUE = DescriptionPackage.LAYOUT_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>String Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>String Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -2883,7 +2883,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.IntegerLayoutOptionImpl
-     * <em>Integer Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <em>Integer Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.IntegerLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getIntegerLayoutOption()
@@ -2924,7 +2924,7 @@ public interface DescriptionPackage extends EPackage {
     int INTEGER_LAYOUT_OPTION__VALUE = DescriptionPackage.LAYOUT_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Integer Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Integer Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -2934,7 +2934,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.DoubleLayoutOptionImpl <em>Double
-     * Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.DoubleLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getDoubleLayoutOption()
@@ -2975,7 +2975,7 @@ public interface DescriptionPackage extends EPackage {
     int DOUBLE_LAYOUT_OPTION__VALUE = DescriptionPackage.LAYOUT_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Double Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Double Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -2985,7 +2985,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.EnumOptionImpl <em>Enum
-     * Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.EnumOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumOption()
@@ -3027,7 +3027,7 @@ public interface DescriptionPackage extends EPackage {
     int ENUM_OPTION__CHOICES = DescriptionPackage.LAYOUT_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Enum Option</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * The number of structural features of the '<em>Enum java.util.Optional</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
      *
      * @generated
@@ -3037,7 +3037,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.EnumLayoutOptionImpl <em>Enum
-     * Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.EnumLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumLayoutOption()
@@ -3088,7 +3088,7 @@ public interface DescriptionPackage extends EPackage {
     int ENUM_LAYOUT_OPTION__VALUE = DescriptionPackage.ENUM_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Enum Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Enum Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -3098,7 +3098,7 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.diagram.description.impl.EnumSetLayoutOptionImpl <em>Enum
-     * Set Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Set Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @see org.eclipse.sirius.diagram.description.impl.EnumSetLayoutOptionImpl
      * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumSetLayoutOption()
@@ -3149,7 +3149,7 @@ public interface DescriptionPackage extends EPackage {
     int ENUM_SET_LAYOUT_OPTION__VALUES = DescriptionPackage.ENUM_OPTION_FEATURE_COUNT + 0;
 
     /**
-     * The number of structural features of the '<em>Enum Set Layout Option</em>' class. <!-- begin-user-doc --> <!--
+     * The number of structural features of the '<em>Enum Set Layout java.util.Optional</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
@@ -4798,9 +4798,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.LayoutOption <em>Layout
-     * Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Layout Option</em>'.
+     * @return the meta object for class '<em>Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.LayoutOption
      * @generated
      */
@@ -4842,9 +4842,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.BooleanLayoutOption <em>Boolean
-     * Layout Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Boolean Layout Option</em>'.
+     * @return the meta object for class '<em>Boolean Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.BooleanLayoutOption
      * @generated
      */
@@ -4864,9 +4864,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.StringLayoutOption <em>String
-     * Layout Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>String Layout Option</em>'.
+     * @return the meta object for class '<em>String Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.StringLayoutOption
      * @generated
      */
@@ -4886,9 +4886,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.IntegerLayoutOption <em>Integer
-     * Layout Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Integer Layout Option</em>'.
+     * @return the meta object for class '<em>Integer Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.IntegerLayoutOption
      * @generated
      */
@@ -4908,9 +4908,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.DoubleLayoutOption <em>Double
-     * Layout Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Double Layout Option</em>'.
+     * @return the meta object for class '<em>Double Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.DoubleLayoutOption
      * @generated
      */
@@ -4930,9 +4930,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.EnumLayoutOption <em>Enum Layout
-     * Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Enum Layout Option</em>'.
+     * @return the meta object for class '<em>Enum Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.EnumLayoutOption
      * @generated
      */
@@ -4952,9 +4952,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.EnumSetLayoutOption <em>Enum Set
-     * Layout Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Layout java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Enum Set Layout Option</em>'.
+     * @return the meta object for class '<em>Enum Set Layout java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.EnumSetLayoutOption
      * @generated
      */
@@ -4974,9 +4974,9 @@ public interface DescriptionPackage extends EPackage {
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.diagram.description.EnumOption <em>Enum
-     * Option</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * java.util.Optional</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return the meta object for class '<em>Enum Option</em>'.
+     * @return the meta object for class '<em>Enum java.util.Optional</em>'.
      * @see org.eclipse.sirius.diagram.description.EnumOption
      * @generated
      */
@@ -6155,7 +6155,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.LayoutOptionImpl
-         * <em>Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.LayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getLayoutOption()
@@ -6189,7 +6189,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.BooleanLayoutOptionImpl
-         * <em>Boolean Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Boolean Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.BooleanLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getBooleanLayoutOption()
@@ -6207,7 +6207,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.StringLayoutOptionImpl
-         * <em>String Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>String Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.StringLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getStringLayoutOption()
@@ -6225,7 +6225,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.IntegerLayoutOptionImpl
-         * <em>Integer Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Integer Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.IntegerLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getIntegerLayoutOption()
@@ -6243,7 +6243,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.DoubleLayoutOptionImpl
-         * <em>Double Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Double Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.DoubleLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getDoubleLayoutOption()
@@ -6261,7 +6261,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.EnumLayoutOptionImpl
-         * <em>Enum Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Enum Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.EnumLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumLayoutOption()
@@ -6279,7 +6279,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.EnumSetLayoutOptionImpl
-         * <em>Enum Set Layout Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * <em>Enum Set Layout java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.EnumSetLayoutOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumSetLayoutOption()
@@ -6297,7 +6297,7 @@ public interface DescriptionPackage extends EPackage {
 
         /**
          * The meta object literal for the '{@link org.eclipse.sirius.diagram.description.impl.EnumOptionImpl <em>Enum
-         * Option</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * java.util.Optional</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
          * @see org.eclipse.sirius.diagram.description.impl.EnumOptionImpl
          * @see org.eclipse.sirius.diagram.description.impl.DescriptionPackageImpl#getEnumOption()

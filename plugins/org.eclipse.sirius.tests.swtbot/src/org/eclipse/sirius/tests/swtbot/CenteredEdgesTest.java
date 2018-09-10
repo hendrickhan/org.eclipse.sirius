@@ -46,7 +46,7 @@ import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNode4EditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeContainerEditPart;
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.DNodeEditPart;
 import org.eclipse.sirius.diagram.ui.internal.refresh.GMFHelper;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.ext.gmf.runtime.editparts.GraphicalHelper;
 import org.eclipse.sirius.tests.support.api.TestsUtil;
 import org.eclipse.sirius.tests.swtbot.support.api.AbstractSiriusSwtBotGefTestCase;
@@ -984,8 +984,8 @@ public class CenteredEdgesTest extends AbstractSiriusSwtBotGefTestCase {
         PrecisionPoint expectedLineTerminus = getProportionalPoint(figureBounds, expectedAnchor);
         connection.translateToRelative(expectedLineTerminus);
 
-        Option<Point> option = GraphicalHelper.getIntersection(lineOrigin, expectedLineTerminus, (IGraphicalEditPart) targetSwtBotGefEditPart.part(), false);
-        if (option.some()) {
+        java.util.Optional<Point> option = GraphicalHelper.getIntersection(lineOrigin, expectedLineTerminus, (IGraphicalEditPart) targetSwtBotGefEditPart.part(), false);
+        if (option.isPresent()) {
             assertConnectionEndPointEquals("Wrong edge target connection", option.get(), realTargetConnection);
         }
         if (checkGMFPoint) {
@@ -1025,8 +1025,8 @@ public class CenteredEdgesTest extends AbstractSiriusSwtBotGefTestCase {
         
         PrecisionPoint expectedLineTerminus = getProportionalPoint(figureBounds, expectedAnchor);
 
-        Option<Point> option = GraphicalHelper.getIntersection(lineOrigin, expectedLineTerminus, (IGraphicalEditPart) sourceEditPart, false);
-        if (option.some()) {
+        java.util.Optional<Point> option = GraphicalHelper.getIntersection(lineOrigin, expectedLineTerminus, (IGraphicalEditPart) sourceEditPart, false);
+        if (option.isPresent()) {
             assertConnectionEndPointEquals("Wrong edge source connection", option.get(), realSourceConnection);
         }
         if (checkGMFPoint) {

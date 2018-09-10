@@ -611,7 +611,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.LayoutOption
-     * <em>Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
+     * <em>Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
      * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
      * -->
      *
@@ -625,7 +625,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.BooleanLayoutOption
-     * <em>Boolean Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * <em>Boolean Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -639,7 +639,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.StringLayoutOption
-     * <em>String Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * <em>String Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -653,7 +653,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.IntegerLayoutOption
-     * <em>Integer Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * <em>Integer Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -667,7 +667,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.DoubleLayoutOption
-     * <em>Double Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * <em>Double Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -681,7 +681,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.EnumLayoutOption
-     * <em>Enum Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+     * <em>Enum Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
      * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -695,7 +695,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.EnumSetLayoutOption
-     * <em>Enum Set Layout Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
+     * <em>Enum Set Layout java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we
      * can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
      * end-user-doc -->
      *
@@ -709,7 +709,7 @@ public class DescriptionAdapterFactory extends AdapterFactoryImpl {
 
     /**
      * Creates a new adapter for an object of class '{@link org.eclipse.sirius.diagram.description.EnumOption <em>Enum
-     * Option</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
+     * java.util.Optional</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore
      * cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
      *
      * @return the new adapter.

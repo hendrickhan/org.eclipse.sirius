@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 import org.eclipse.sirius.business.api.query.EObjectQuery;
 import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.viewpoint.description.DescriptionPackage;
 import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.IdentifiedElement;
@@ -64,8 +64,8 @@ public final class WorkflowHelper {
         // @formatter:off
         return session.getSelectedViewpoints(true).stream()
                 .map(viewpoint -> new EObjectQuery(viewpoint).getFirstAncestorOfType(DescriptionPackage.Literals.GROUP))
-                .filter(Option::some)
-                .map(Option::get)
+                .filter(java.util.Optional::isPresent)
+                .map(java.util.Optional::get)
                 .filter(Group.class::isInstance)
                 .map(Group.class::cast)
                 .flatMap(group -> group.getExtensions().stream())

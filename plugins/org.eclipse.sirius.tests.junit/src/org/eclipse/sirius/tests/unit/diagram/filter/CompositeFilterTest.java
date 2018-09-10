@@ -33,7 +33,7 @@ import org.eclipse.sirius.diagram.IndirectlyCollapseFilter;
 import org.eclipse.sirius.diagram.business.api.query.DDiagramElementQuery;
 import org.eclipse.sirius.diagram.description.filter.FilterDescription;
 import org.eclipse.sirius.diagram.ui.edit.api.part.AbstractDiagramEdgeEditPart;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tests.SiriusTestsPlugin;
 import org.eclipse.sirius.tests.support.api.SiriusDiagramTestCase;
 import org.eclipse.sirius.tests.support.api.TestsUtil;
@@ -904,9 +904,9 @@ public class CompositeFilterTest extends SiriusDiagramTestCase {
         assertEquals(filters.length == 0 ? 0 : 1, element.getGraphicalFilters().stream().filter(AppliedCompositeFilters.class::isInstance).count());
 
         DDiagramElementQuery elementQuery = new DDiagramElementQuery(element);
-        Option<AppliedCompositeFilters> filterApplication = elementQuery.getAppliedCompositeFilters();
+        java.util.Optional<AppliedCompositeFilters> filterApplication = elementQuery.getAppliedCompositeFilters();
 
-        assertEquals(filters.length != 0, filterApplication.some());
+        assertEquals(filters.length != 0, filterApplication.isPresent());
 
         if (filters.length == 0)
             return;

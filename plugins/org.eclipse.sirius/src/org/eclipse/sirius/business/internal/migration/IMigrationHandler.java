@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.xmi.XMLHelper;
 import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.sirius.ext.base.Option;
+
 
 /**
  * The interface used to call migration process.
@@ -66,7 +66,7 @@ public interface IMigrationHandler {
      * 
      * @return map of option used to migrate fragment.
      */
-    Option<String> getOptionalRewrittenFragment(String uriFragment);
+    java.util.Optional<String> getOptionalRewrittenFragment(String uriFragment);
 
     /**
      * Create XML configuration.

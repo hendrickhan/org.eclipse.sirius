@@ -35,7 +35,7 @@ import org.eclipse.sirius.business.api.query.FileQuery;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionStatus;
 import org.eclipse.sirius.business.internal.modelingproject.marker.InvalidModelingProjectMarkerUpdaterJob;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.viewpoint.Messages;
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 
@@ -60,8 +60,8 @@ public class ModelingModelProvider extends ModelProvider {
     public ResourceMapping[] getMappings(final IResource resource, final ResourceMappingContext context, final IProgressMonitor monitor) throws CoreException {
         ResourceMapping[] result = null;
         if (resource instanceof IProject) {
-            Option<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject((IProject) resource);
-            if (optionalModelingProject.some()) {
+            java.util.Optional<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject((IProject) resource);
+            if (optionalModelingProject.isPresent()) {
                 result = new ResourceMapping[] { ModelingElementResourceMapping.create(optionalModelingProject.get()) };
             }
         }
@@ -203,8 +203,8 @@ public class ModelingModelProvider extends ModelProvider {
         protected boolean visitProject(IResourceDelta delta, IProject project) throws CoreException {
             // By default, we do not visit the resource delta's children
             boolean visitChildren = false;
-            final Option<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(project);
-            if (optionalModelingProject.some()) {
+            final java.util.Optional<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(project);
+            if (optionalModelingProject.isPresent()) {
                 if (IResourceDelta.REMOVED == delta.getKind()) {
                     Session session = optionalModelingProject.get().getSession();
                     if (session != null && session.isOpen() && SessionStatus.DIRTY.equals(session.getStatus())) {
@@ -236,8 +236,8 @@ public class ModelingModelProvider extends ModelProvider {
         protected boolean visitFile(IResourceDelta delta, IFile currentFile) throws CoreException {
             // By default, we do not visit the resource delta's children
             boolean visitChildren = false;
-            final Option<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(currentFile.getProject());
-            if (optionalModelingProject.some()) {
+            final java.util.Optional<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(currentFile.getProject());
+            if (optionalModelingProject.isPresent()) {
                 if (IResourceDelta.REMOVED == delta.getKind()) {
                     if (optionalModelingProject.get().isValid()) {
                         // Check that this IFile is not the main representations

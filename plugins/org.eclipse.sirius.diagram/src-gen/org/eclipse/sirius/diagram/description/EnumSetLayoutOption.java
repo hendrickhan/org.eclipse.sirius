@@ -14,7 +14,7 @@ package org.eclipse.sirius.diagram.description;
 import org.eclipse.emf.common.util.EList;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Enum Set Layout Option</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Enum Set Layout java.util.Optional</b></em>'. <!--
  * end-user-doc -->
  *
  * <p>

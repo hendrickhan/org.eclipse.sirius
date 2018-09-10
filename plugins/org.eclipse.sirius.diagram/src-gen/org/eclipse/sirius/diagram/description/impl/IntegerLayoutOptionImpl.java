@@ -18,7 +18,7 @@ import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.description.IntegerLayoutOption;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Integer Layout Option</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Integer Layout java.util.Optional</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:

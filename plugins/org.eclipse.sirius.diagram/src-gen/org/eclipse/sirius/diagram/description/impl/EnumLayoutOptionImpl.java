@@ -21,7 +21,7 @@ import org.eclipse.sirius.diagram.description.EnumLayoutOption;
 import org.eclipse.sirius.diagram.description.EnumLayoutValue;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enum Layout Option</b></em>'. <!-- end-user-doc
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Enum Layout java.util.Optional</b></em>'. <!-- end-user-doc
  * -->
  * <p>
  * The following features are implemented:

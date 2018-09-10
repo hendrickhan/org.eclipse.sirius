@@ -60,8 +60,8 @@ import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.common.tools.api.util.EqualityHelper;
 import org.eclipse.sirius.common.tools.api.util.StringUtil;
 import org.eclipse.sirius.ecore.extender.tool.api.ModelUtils;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+
+
 import org.eclipse.sirius.tools.api.profiler.SiriusTasksKey;
 import org.eclipse.sirius.tools.internal.uri.ViewpointProtocolException;
 import org.eclipse.sirius.tools.internal.uri.ViewpointProtocolParser;
@@ -328,11 +328,11 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
                 unloadAndRemove(resource);
             }
             final EObject root = load(resourceURI, resourceSet);
-            Option<ViewpointFileCollector> collector = getCollectorFromURI(resourceURI);
-            if (collector.some() && collector.get().isValid(root)) {
+            java.util.Optional<ViewpointFileCollector> collector = getCollectorFromURI(resourceURI);
+            if (collector.isPresent() && collector.get().isValid(root)) {
                 for (final Viewpoint viewpoint : collector.get().collect(root)) {
-                    Option<URI> uri = new ViewpointQuery(viewpoint).getViewpointURI();
-                    if (uri.some()) {
+                    java.util.Optional<URI> uri = new ViewpointQuery(viewpoint).getViewpointURI();
+                    if (uri.isPresent()) {
                         viewpointsFromPlugin.put(uri.get(), viewpoint);
                     } else {
                         viewpointsFromPlugin.put(EcoreUtil.getURI(viewpoint), viewpoint);
@@ -382,18 +382,18 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
         }
     }
 
-    private Option<ViewpointFileCollector> getCollectorFromURI(URI fileURI) {
-        Option<ViewpointFileCollector> result = Options.newNone();
+    private java.util.Optional<ViewpointFileCollector> getCollectorFromURI(URI fileURI) {
+        java.util.Optional<ViewpointFileCollector> result = java.util.Optional.empty();
         if (!StringUtil.isEmpty(fileURI.fileExtension())) {
-            result = Options.newSome(collectors.get(fileURI.fileExtension()));
+            result = java.util.Optional.of(collectors.get(fileURI.fileExtension()));
         }
         return result;
     }
 
-    private Option<ViewpointFileCollector> getCollectorFromIFile(IFile file) {
-        Option<ViewpointFileCollector> result = Options.newNone();
+    private java.util.Optional<ViewpointFileCollector> getCollectorFromIFile(IFile file) {
+        java.util.Optional<ViewpointFileCollector> result = java.util.Optional.empty();
         if (!StringUtil.isEmpty(file.getFileExtension())) {
-            result = Options.newSome(collectors.get(file.getFileExtension()));
+            result = java.util.Optional.of(collectors.get(file.getFileExtension()));
         }
         return result;
     }
@@ -584,9 +584,9 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
 
             EObject descRoot = load(file, resourceSet);
             if (descRoot != null) {
-                Option<ViewpointFileCollector> collector = getCollectorFromIFile(file);
+                java.util.Optional<ViewpointFileCollector> collector = getCollectorFromIFile(file);
 
-                if (collector.some() && collector.get().isValid(descRoot)) {
+                if (collector.isPresent() && collector.get().isValid(descRoot)) {
                     viewpoints.addAll(collector.get().collect(descRoot));
                     mapToSiriusProtocol(collector.get().collect(descRoot));
                     resourcesToResolve.add(descRoot.eResource());
@@ -769,7 +769,7 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
     }
 
     private boolean mightContainViewpoints(final IResource resource) {
-        return (resource instanceof IFile) && getCollectorFromIFile((IFile) resource).some();
+        return (resource instanceof IFile) && getCollectorFromIFile((IFile) resource).isPresent();
     }
 
     private boolean onlyMarkerChanged(final IResourceDelta resourceDelta) {
@@ -788,8 +788,8 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
 
         /* Add all viewpoints into the registry. */
         final EObject descRoot = load(file, resourceSet);
-        Option<ViewpointFileCollector> collector = getCollectorFromIFile(file);
-        if (collector.some() && collector.get().isValid(descRoot)) {
+        java.util.Optional<ViewpointFileCollector> collector = getCollectorFromIFile(file);
+        if (collector.isPresent() && collector.get().isValid(descRoot)) {
             viewpointsFromWorkspace.addAll(collector.get().collect(descRoot));
             mapToSiriusProtocol(collector.get().collect(descRoot));
 
@@ -826,9 +826,9 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
         } else {
             /* remove affected viewpoints */
             final EObject descRoot = load(file, resourceSet);
-            Option<ViewpointFileCollector> collector = getCollectorFromIFile(file);
+            java.util.Optional<ViewpointFileCollector> collector = getCollectorFromIFile(file);
 
-            if (collector.some() && collector.get().isValid(descRoot)) {
+            if (collector.isPresent() && collector.get().isValid(descRoot)) {
                 for (final Viewpoint toRemove : collector.get().collect(descRoot)) {
                     for (final Viewpoint loadedSirius : new ArrayList<Viewpoint>(this.viewpointsFromWorkspace)) {
                         if (EqualityHelper.areEquals(toRemove, loadedSirius)) {
@@ -874,8 +874,8 @@ public class ViewpointRegistryImpl extends ViewpointRegistry {
 
         /* load new viewpoints. */
         final EObject descRoot = load(odesignFile, resourceSet);
-        Option<ViewpointFileCollector> collector = getCollectorFromIFile(odesignFile);
-        if (collector.some() && collector.get().isValid(descRoot)) {
+        java.util.Optional<ViewpointFileCollector> collector = getCollectorFromIFile(odesignFile);
+        if (collector.isPresent() && collector.get().isValid(descRoot)) {
             viewpointsFromWorkspace.addAll(collector.get().collect(descRoot));
             mapToSiriusProtocol(collector.get().collect(descRoot));
 

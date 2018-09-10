@@ -243,7 +243,7 @@ public class DDiagramEditPart extends AbstractDDiagramEditPart {
      *            figure with the background to configure
      */
     public synchronized void configureBackground(IFigure fig) {
-        if (resolveDDiagram().some() && fig != null) {
+        if (resolveDDiagram().isPresent() && fig != null) {
             DSemanticDiagram dSemanticDiagram = (DSemanticDiagram) this.resolveDDiagram().get();
             ColorDescription colorDesc = dSemanticDiagram.getDescription().getBackgroundColor();
             RGBValues rgb = WHITE;

@@ -50,7 +50,7 @@ import org.eclipse.sirius.business.internal.migration.resource.MigrationUtil;
 import org.eclipse.sirius.business.internal.session.danalysis.SessionLazyCrossReferencer;
 import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.common.tools.api.util.MarkerUtil;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.viewpoint.DAnalysisSessionEObject;
 import org.eclipse.sirius.viewpoint.Messages;
@@ -195,8 +195,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
             }
             // Handle explicit SessionTransientAttachment
             if (found == null) {
-                Option<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(any);
-                if (attachment.some()) {
+                java.util.Optional<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(any);
+                if (attachment.isPresent()) {
                     found = attachment.get().getSession();
                 }
             }
@@ -229,9 +229,9 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
     @Override
     public Session getSession(final Resource semanticResource) {
         Session found = null;
-        Option<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(semanticResource);
+        java.util.Optional<SessionTransientAttachment> attachment = SessionTransientAttachment.getSessionTransientAttachement(semanticResource);
 
-        if (attachment.some()) {
+        if (attachment.isPresent()) {
             found = attachment.get().getSession();
         }
         if (found == null) {
@@ -250,8 +250,8 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
 
     @Override
     public Session getSession(URI sessionModelURI, IProgressMonitor monitor) {
-        Option<IResource> optionalResource = new URIQuery(sessionModelURI).getCorrespondingResource();
-        if (optionalResource.some()) {
+        java.util.Optional<IResource> optionalResource = new URIQuery(sessionModelURI).getCorrespondingResource();
+        if (optionalResource.isPresent()) {
             MarkerUtil.removeMarkerFor(optionalResource.get(), MarkerRuntimeLogger.MARKER_TYPE);
         }
         Session session = lookForAlreadyLoadedSession(sessionModelURI);
@@ -259,7 +259,7 @@ public class SessionManagerImpl extends SessionManagerEObjectImpl implements Ses
             try {
                 session = SessionFactory.INSTANCE.createSession(sessionModelURI, monitor);
             } catch (CoreException e) {
-                if (optionalResource.some()) {
+                if (optionalResource.isPresent()) {
                     MarkerUtil.addMarkerFor(optionalResource.get(),
                             MessageFormat.format(Messages.SessionManagerImpl_representationsFileLoadingSeeErrorLogMsg, e.getCause() != null ? e.getCause().getMessage() : e.getMessage()),
                             IMarker.SEVERITY_ERROR, MarkerRuntimeLogger.MARKER_TYPE);

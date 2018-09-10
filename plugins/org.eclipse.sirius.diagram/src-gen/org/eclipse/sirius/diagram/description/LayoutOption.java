@@ -14,7 +14,7 @@ package org.eclipse.sirius.diagram.description;
 import org.eclipse.emf.ecore.EObject;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Layout Option</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Layout java.util.Optional</b></em>'. <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:

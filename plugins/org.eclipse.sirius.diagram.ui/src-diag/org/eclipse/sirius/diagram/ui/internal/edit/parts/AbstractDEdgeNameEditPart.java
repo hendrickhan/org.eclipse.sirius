@@ -37,7 +37,7 @@ import org.eclipse.sirius.diagram.ui.graphical.edit.policies.SiriusPropertyHandl
 import org.eclipse.sirius.diagram.ui.internal.edit.parts.locator.EdgeLabelLocator;
 import org.eclipse.sirius.diagram.ui.internal.providers.SiriusElementTypes;
 import org.eclipse.sirius.diagram.ui.tools.api.policy.CompoundEditPolicy;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.ext.gmf.runtime.gef.ui.figures.SiriusWrapLabel;
 
 /**
@@ -90,8 +90,8 @@ public class AbstractDEdgeNameEditPart extends AbstractGeneratedDiagramNameEditP
     @Override
     protected void setManager(DirectEditManager manager) {
         DEdge edge = (DEdge) resolveSemanticElement();
-        Option<EdgeMapping> edgeMapping = new IEdgeMappingQuery(edge.getActualMapping()).getEdgeMapping();
-        if (edgeMapping.some() && edgeMapping.get().getLabelDirectEdit() != null) {
+        java.util.Optional<EdgeMapping> edgeMapping = new IEdgeMappingQuery(edge.getActualMapping()).getEdgeMapping();
+        if (edgeMapping.isPresent() && edgeMapping.get().getLabelDirectEdit() != null) {
             this.manager = manager;
         }
     }

@@ -12,7 +12,7 @@
 package org.eclipse.sirius.diagram.description;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Integer Layout Option</b></em>'. <!--
+ * <!-- begin-user-doc --> A representation of the model object '<em><b>Integer Layout java.util.Optional</b></em>'. <!--
  * end-user-doc -->
  *
  * <p>

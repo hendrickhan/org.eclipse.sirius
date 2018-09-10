@@ -49,7 +49,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.business.api.session.SessionManagerListener;
 import org.eclipse.sirius.business.internal.modelingproject.marker.ModelingMarker;
 import org.eclipse.sirius.business.internal.query.ModelingProjectQuery;
-import org.eclipse.sirius.ext.base.Option;
+
 import org.eclipse.sirius.tools.api.command.semantic.AddSemanticResourceCommand;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.sirius.ui.tools.internal.views.common.modelingproject.OpenRepresentationsFileJob;
@@ -355,18 +355,18 @@ public class ModelingProjectManagerImpl implements ModelingProjectManager {
             project.setDescription(description, new SubProgressMonitor(monitor, 1));
 
             // check project
-            Option<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(project);
-            if (optionalModelingProject.some()) {
+            java.util.Optional<ModelingProject> optionalModelingProject = ModelingProject.asModelingProject(project);
+            if (optionalModelingProject.isPresent()) {
                 ModelingProject modelingProject = optionalModelingProject.get();
                 try {
                     // See 525466. we set the validity to true in case of DefaultModelingProjectResourceListener that
                     // has set it to false or the representation file will not be created if it does not exist yet.
-                    Option<URI> mainRepresentationsFileURI;
+                    java.util.Optional<URI> mainRepresentationsFileURI;
                     synchronized (modelingProject) {
                         modelingProject.setValid(true);
                         mainRepresentationsFileURI = modelingProject.getMainRepresentationsFileURI(new SubProgressMonitor(monitor, 1), false, true);
                     }
-                    if (mainRepresentationsFileURI != null && mainRepresentationsFileURI.some()) {
+                    if (mainRepresentationsFileURI != null && mainRepresentationsFileURI.isPresent()) {
                         // Open the session.
                         loadAndOpenRepresentationsFiles(new ArrayList<URI>(Arrays.asList(mainRepresentationsFileURI.get())), true, true);
                     }

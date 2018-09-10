@@ -163,49 +163,49 @@ public interface DescriptionFactory extends EFactory {
     CustomLayoutConfiguration createCustomLayoutConfiguration();
 
     /**
-     * Returns a new object of class '<em>Boolean Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Boolean Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Boolean Layout Option</em>'.
+     * @return a new object of class '<em>Boolean Layout java.util.Optional</em>'.
      * @generated
      */
     BooleanLayoutOption createBooleanLayoutOption();
 
     /**
-     * Returns a new object of class '<em>String Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>String Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>String Layout Option</em>'.
+     * @return a new object of class '<em>String Layout java.util.Optional</em>'.
      * @generated
      */
     StringLayoutOption createStringLayoutOption();
 
     /**
-     * Returns a new object of class '<em>Integer Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Integer Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Integer Layout Option</em>'.
+     * @return a new object of class '<em>Integer Layout java.util.Optional</em>'.
      * @generated
      */
     IntegerLayoutOption createIntegerLayoutOption();
 
     /**
-     * Returns a new object of class '<em>Double Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Double Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Double Layout Option</em>'.
+     * @return a new object of class '<em>Double Layout java.util.Optional</em>'.
      * @generated
      */
     DoubleLayoutOption createDoubleLayoutOption();
 
     /**
-     * Returns a new object of class '<em>Enum Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Enum Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Enum Layout Option</em>'.
+     * @return a new object of class '<em>Enum Layout java.util.Optional</em>'.
      * @generated
      */
     EnumLayoutOption createEnumLayoutOption();
 
     /**
-     * Returns a new object of class '<em>Enum Set Layout Option</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns a new object of class '<em>Enum Set Layout java.util.Optional</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
-     * @return a new object of class '<em>Enum Set Layout Option</em>'.
+     * @return a new object of class '<em>Enum Set Layout java.util.Optional</em>'.
      * @generated
      */
     EnumSetLayoutOption createEnumSetLayoutOption();

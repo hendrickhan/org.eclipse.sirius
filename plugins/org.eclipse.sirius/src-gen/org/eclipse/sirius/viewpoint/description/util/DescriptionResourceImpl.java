@@ -22,8 +22,8 @@ import org.eclipse.emf.ecore.xmi.XMLLoad;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMLResourceImpl;
 import org.eclipse.sirius.business.internal.migration.IMigrationHandler;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+
+
 import org.eclipse.sirius.viewpoint.SiriusPlugin;
 
 /**
@@ -106,11 +106,11 @@ public class DescriptionResourceImpl extends XMIResourceImpl {
      */
     @Override
     public EObject getEObject(String uriFragment) {
-        Option<String> optionalRewrittenFragment = Options.newNone();
+        java.util.Optional<String> optionalRewrittenFragment = java.util.Optional.empty();
         if (migrationHandler.isPresent()) {
             optionalRewrittenFragment = migrationHandler.get().getOptionalRewrittenFragment(uriFragment);
         }
-        if (optionalRewrittenFragment.some()) {
+        if (optionalRewrittenFragment.isPresent()) {
             return getEObject(optionalRewrittenFragment.get());
         } else if (useURIFragmentAsId) {
             return getEObjectUsingURIFragmentAsId(uriFragment);

@@ -18,7 +18,7 @@ import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.description.StringLayoutOption;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>String Layout Option</b></em>'. <!--
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>String Layout java.util.Optional</b></em>'. <!--
  * end-user-doc -->
  * <p>
  * The following features are implemented:

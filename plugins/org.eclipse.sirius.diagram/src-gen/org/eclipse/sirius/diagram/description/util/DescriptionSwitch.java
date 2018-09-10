@@ -941,12 +941,12 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Layout Option</em>'. <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Layout java.util.Optional</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -955,13 +955,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Boolean Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Boolean Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Boolean Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Boolean Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -970,13 +970,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>String Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>String Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>String Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>String Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -985,13 +985,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Integer Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Integer Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Integer Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Integer Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1000,13 +1000,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Double Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Double Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Double Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Double Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1015,13 +1015,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enum Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Enum Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enum Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enum Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1030,13 +1030,13 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enum Set Layout Option</em>'. <!--
+     * Returns the result of interpreting the object as an instance of '<em>Enum Set Layout java.util.Optional</em>'. <!--
      * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enum Set Layout Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enum Set Layout java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -1045,12 +1045,12 @@ public class DescriptionSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Enum Option</em>'. <!-- begin-user-doc -->
+     * Returns the result of interpreting the object as an instance of '<em>Enum java.util.Optional</em>'. <!-- begin-user-doc -->
      * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
      *
      * @param object
      *            the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Enum Option</em>'.
+     * @return the result of interpreting the object as an instance of '<em>Enum java.util.Optional</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */

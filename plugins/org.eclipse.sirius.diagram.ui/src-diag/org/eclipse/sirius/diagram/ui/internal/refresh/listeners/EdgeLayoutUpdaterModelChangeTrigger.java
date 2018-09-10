@@ -44,8 +44,8 @@ import org.eclipse.sirius.diagram.EdgeStyle;
 import org.eclipse.sirius.diagram.ui.business.api.view.SiriusGMFHelper;
 import org.eclipse.sirius.diagram.ui.business.internal.operation.AbstractModelChangeOperation;
 import org.eclipse.sirius.diagram.ui.internal.operation.CenterEdgeEndModelChangeOperation;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+
+
 import org.eclipse.sirius.viewpoint.Style;
 import org.eclipse.sirius.viewpoint.ViewpointPackage;
 
@@ -125,7 +125,7 @@ public class EdgeLayoutUpdaterModelChangeTrigger implements ModelChangeTrigger {
     }
 
     @Override
-    public Option<Command> localChangesAboutToCommit(Collection<Notification> notifications) {
+    public java.util.Optional<Command> localChangesAboutToCommit(Collection<Notification> notifications) {
         Command command = null;
 
         // this collection contains gmf edges for which we already created a
@@ -160,7 +160,7 @@ public class EdgeLayoutUpdaterModelChangeTrigger implements ModelChangeTrigger {
             command = new EdgeLayoutUpdaterCommand(domain, operations);
         }
 
-        return Options.newSome(command);
+        return java.util.Optional.of(command);
     }
 
     /**

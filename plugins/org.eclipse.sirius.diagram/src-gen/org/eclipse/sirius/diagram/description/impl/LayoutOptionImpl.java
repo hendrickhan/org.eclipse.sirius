@@ -19,7 +19,7 @@ import org.eclipse.sirius.diagram.description.DescriptionPackage;
 import org.eclipse.sirius.diagram.description.LayoutOption;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Layout Option</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Layout java.util.Optional</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>

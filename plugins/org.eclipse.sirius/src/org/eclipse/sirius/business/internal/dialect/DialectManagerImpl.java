@@ -40,8 +40,8 @@ import org.eclipse.sirius.business.api.session.danalysis.DAnalysisSession;
 import org.eclipse.sirius.common.tools.api.util.EclipseUtil;
 import org.eclipse.sirius.common.tools.api.util.EqualityHelper;
 import org.eclipse.sirius.ecore.extender.business.api.accessor.ModelAccessor;
-import org.eclipse.sirius.ext.base.Option;
-import org.eclipse.sirius.ext.base.Options;
+
+
 import org.eclipse.sirius.tools.api.command.CommandContext;
 import org.eclipse.sirius.tools.api.command.ui.UICallBack;
 import org.eclipse.sirius.viewpoint.DRepresentation;
@@ -382,8 +382,8 @@ public class DialectManagerImpl implements DialectManager {
         IInterpretedExpressionQuery returnedQuery = null;
         // Ask registered providers first
         for (IInterpretedExpressionQueryProvider provider : SiriusPlugin.getDefault().getInterpretedExpressionQueryProviders()) {
-            Option<IInterpretedExpressionQuery> answer = provider.getExpressionQueryFor(target, feature);
-            if (answer.some()) {
+            java.util.Optional<IInterpretedExpressionQuery> answer = provider.getExpressionQueryFor(target, feature);
+            if (answer.isPresent()) {
                 returnedQuery = answer.get();
                 break;
             }
@@ -396,7 +396,7 @@ public class DialectManagerImpl implements DialectManager {
                 // Step 2 : we delegate the query creation to the found
                 // DialectDescription
                 returnedQuery = dialect.getServices().createInterpretedExpressionQuery(target, feature);
-            } else if (new EObjectQuery(target).getFirstAncestorOfType(DescriptionPackage.Literals.EXTENSION).some()) {
+            } else if (new EObjectQuery(target).getFirstAncestorOfType(DescriptionPackage.Literals.EXTENSION).isPresent()) {
                 // We are not inside a dialect, but inside an extension
             }
         }
@@ -478,10 +478,10 @@ public class DialectManagerImpl implements DialectManager {
     }
 
     @Override
-    public Option<? extends AbstractCommandTask> createTask(CommandContext context, ModelAccessor extPackage, ModelOperation op, Session session, UICallBack uiCallback) {
-        Option<? extends AbstractCommandTask> task = Options.newNone();
+    public java.util.Optional<? extends AbstractCommandTask> createTask(CommandContext context, ModelAccessor extPackage, ModelOperation op, Session session, UICallBack uiCallback) {
+        java.util.Optional<? extends AbstractCommandTask> task = java.util.Optional.empty();
         Iterator<Dialect> iterDialect = dialects.values().iterator();
-        while (iterDialect.hasNext() && !task.some()) {
+        while (iterDialect.hasNext() && !task.isPresent()) {
             Dialect dialect = iterDialect.next();
             task = dialect.getServices().createTask(context, extPackage, op, session, uiCallback);
         }
