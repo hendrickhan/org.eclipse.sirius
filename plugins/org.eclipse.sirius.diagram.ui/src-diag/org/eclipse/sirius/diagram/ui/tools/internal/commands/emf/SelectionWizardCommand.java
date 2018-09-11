@@ -97,6 +97,7 @@ public class SelectionWizardCommand extends AbstractSelectionWizardCommand {
                 DiagramUIPlugin.getPlugin().getItemProvidersAdapterFactory());
         wizard.setMany(tool.isMultiple());
         final WizardDialog dlg = new WizardDialog(shell, wizard);
+        wizard.setDialog(dlg);
         final int result = dlg.open();
         if (result == Window.OK) {
             final Collection<EObject> selectedElements = wizard.getSelectedEObjects();

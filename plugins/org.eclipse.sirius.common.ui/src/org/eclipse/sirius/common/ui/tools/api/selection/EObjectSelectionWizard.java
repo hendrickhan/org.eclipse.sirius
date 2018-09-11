@@ -16,6 +16,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.sirius.common.tools.api.util.TreeItemWrapper;
 import org.eclipse.sirius.common.ui.Messages;
 import org.eclipse.sirius.common.ui.tools.api.selection.page.EObjectSelectionWizardPage;
@@ -36,6 +37,8 @@ public class EObjectSelectionWizard extends Wizard {
     private static final String EOBJECT_SELECTION_WIZARD_PAGE_NAME = "page"; //$NON-NLS-1$
 
     private EObjectSelectionWizardPage page;
+
+    private WizardDialog dialog;
 
     /**
      * Default constructor.
@@ -118,6 +121,14 @@ public class EObjectSelectionWizard extends Wizard {
      */
     public Collection<EObject> getSelectedEObjects() {
         return page.getSelectedEObjects();
+    }
+    
+    public WizardDialog getDialog() {
+        return this.dialog;
+    }
+
+    public void setDialog(WizardDialog dlg) {
+        this.dialog = dlg;
     }
 
 }
