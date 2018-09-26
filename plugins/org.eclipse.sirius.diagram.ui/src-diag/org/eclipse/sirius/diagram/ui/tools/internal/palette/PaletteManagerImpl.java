@@ -582,7 +582,10 @@ public class PaletteManagerImpl implements PaletteManager {
     private static PaletteContainer createPaletteDrawner(final ToolSection section) {
         final String name = MessageTranslator.INSTANCE.getMessage(section, new IdentifiedElementQuery(section).getLabel());
         String iconPath = section.getIcon();
-        final PaletteContainer paletteDrawner = new SectionPaletteDrawer(name);
+        final PaletteDrawer paletteDrawner = new SectionPaletteDrawer(name);
+        if ("Classifier".equals(name)) { //$NON-NLS-1$
+            paletteDrawner.setInitialState(PaletteDrawer.INITIAL_STATE_CLOSED);
+        }
         paletteDrawner.setId(PaletteManagerImpl.getToolSectionId(section));
         if (StringUtil.isEmpty(iconPath)) {
             iconPath = "icons/obj16/ToolSection.gif"; //$NON-NLS-1$
