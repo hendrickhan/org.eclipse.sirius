@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -31,6 +32,8 @@ import org.eclipse.core.commands.operations.IOperationHistory;
 import org.eclipse.core.commands.operations.IUndoContext;
 import org.eclipse.core.commands.operations.IUndoableOperation;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.runtime.Adapters;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
@@ -478,6 +481,32 @@ public class SiriusDebugView extends AbstractDebugView {
         // addShowCrossReferencerMap();
         addDeferredChangeAction();
         addDeferredUnrelatedChangeAction();
+        addEMFResourcesStatisticsAction();
+    }
+
+    private void addEMFResourcesStatisticsAction() {
+        addAction("EMF Resource Statistics", new Runnable() {
+            @Override
+            public void run() {
+                IFile input = Adapters.adapt(selection, IFile.class);
+                if (input != null) {
+                    URI uri = URI.createPlatformResourceURI(input.getFullPath().toString(), true);
+                    ResourceSet rs = new ResourceSetImpl();
+                    Resource res = rs.getResource(uri, true);
+                    AtomicLong nbElements = new AtomicLong();
+                    AtomicLong nbReferences = new AtomicLong();
+                    res.getAllContents().forEachRemaining(o -> {
+                        nbElements.incrementAndGet();
+                        nbReferences.addAndGet(o.eCrossReferences().size());
+                    });
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("Resource ").append(uri.toString()).append("\n");
+                    sb.append("Number of elements: ").append(nbElements).append("\n");
+                    sb.append("Number of cross-references: ").append(nbReferences).append("\n");
+                    setText(sb.toString());
+                }
+            }
+        });
     }
 
     private void addDeferredChangeAction() {
