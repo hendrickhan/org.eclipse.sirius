@@ -644,6 +644,7 @@ public final class DiagramElementEditPartOperation {
                 SiriusWrapLabel nodeLabel = ((ViewNodeFigure) figure).getNodeLabel();
                 if (nodeLabel != null) {
                     nodeLabel.setLabelAlignment(LabelAlignmentHelper.getAsPositionConstant(alignment));
+                    nodeLabel.setTextWrapAlignment(LabelAlignmentHelper.getAsPositionConstant(alignment));
                 }
             } else if (figure != null) {
                 LayoutManager layoutManager = figure.getLayoutManager();
