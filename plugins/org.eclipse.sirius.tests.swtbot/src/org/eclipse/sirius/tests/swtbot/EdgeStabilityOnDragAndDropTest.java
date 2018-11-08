@@ -39,7 +39,6 @@ import org.eclipse.sirius.tests.swtbot.support.api.editor.SWTBotSiriusHelper;
 import org.eclipse.sirius.tests.swtbot.support.api.widget.WrappedSWTBotRadio;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefConnectionEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotRadio;
 import org.junit.Assert;
 
@@ -82,17 +81,11 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
      */
     protected SWTBotSiriusDiagramEditor editor;
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onSetUpBeforeClosingWelcomePage() throws Exception {
         copyFileToTestProject(Activator.PLUGIN_ID, DATA_UNIT_DIR, MODEL, SESSION_FILE, VSM_FILE);
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     protected void onSetUpAfterOpeningDesignerPerspective() throws Exception {
         sessionAirdResource = new UIResource(designerProject, FILE_DIR, SESSION_FILE);
@@ -103,8 +96,8 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Get bendpoints of the first connection found between
-     * <code>sourceEditPartName</code> and <code>targetEditPartName</code>.
+     * Get bendpoints of the first connection found between <code>sourceEditPartName</code> and
+     * <code>targetEditPartName</code>.
      * 
      * @param sourceEditPartName
      *            source of the connection
@@ -120,9 +113,8 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Check the stability of the first connection found between
-     * <code>sourceEditPartName</code> and <code>targetEditPartName</code>. The
-     * edge is only moved from one side.
+     * Check the stability of the first connection found between <code>sourceEditPartName</code> and
+     * <code>targetEditPartName</code>. The edge is only moved from one side.
      * 
      * @param sourceEditPartName
      *            source of the connection
@@ -198,9 +190,8 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Check the stability of the first connection found between
-     * <code>sourceEditPartName</code> and <code>targetEditPartName</code>. The
-     * edge is shifted by a constant vector.
+     * Check the stability of the first connection found between <code>sourceEditPartName</code> and
+     * <code>targetEditPartName</code>. The edge is shifted by a constant vector.
      * 
      * @param sourceEditPartName
      *            source of the connection
@@ -243,9 +234,8 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Check that the first connection found between
-     * <code>sourceEditPartName</code> and <code>targetEditPartName</code> has
-     * not moved.
+     * Check that the first connection found between <code>sourceEditPartName</code> and <code>targetEditPartName</code>
+     * has not moved.
      * 
      * @param sourceEditPartName
      *            source of the connection
@@ -282,8 +272,7 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Get the first connection found between <code>sourceEditPartName</code>
-     * and <code>targetEditPartName</code>.
+     * Get the first connection found between <code>sourceEditPartName</code> and <code>targetEditPartName</code>.
      * 
      * @param sourceEditPartName
      *            source of the connection
@@ -329,40 +318,35 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
     }
 
     /**
-     * Change style of edges and drag and and drop a border node to the north of
-     * another bordered node.
+     * Change style of edges and drag and and drop a border node to the north of another bordered node.
      */
     public void testEdgeStabilityOnDragAndDropOnNorthAfterStyleChange() {
         doTestEdgeStabilityOnDragAndDrop("P2", "C2", Direction.NORTH, true);
     }
 
     /**
-     * Change style of edges and drag and and drop a border node to the south of
-     * another bordered node.
+     * Change style of edges and drag and and drop a border node to the south of another bordered node.
      */
     public void testEdgeStabilityOnDragAndDropOnSouthAfterStyleChange() {
         doTestEdgeStabilityOnDragAndDrop("P2", "C2", Direction.SOUTH, true);
     }
 
     /**
-     * Change style of edges and drag and and drop a border node to the west of
-     * another bordered node.
+     * Change style of edges and drag and and drop a border node to the west of another bordered node.
      */
     public void testEdgeStabilityOnDragAndDropOnWestAfterStyleChange() {
         doTestEdgeStabilityOnDragAndDrop("P2", "C2", Direction.WEST, true);
     }
 
     /**
-     * Change style of edges and drag and and drop a border node to the east of
-     * another bordered node.
+     * Change style of edges and drag and and drop a border node to the east of another bordered node.
      */
     public void testEdgeStabilityOnDragAndDropOnEastAfterStyleChange() {
         doTestEdgeStabilityOnDragAndDrop("P2", "C2", Direction.EAST, true);
     }
 
     /**
-     * Drag and drop a border node to node contained into another with
-     * horizontal scrollbar.
+     * Drag and drop a border node to node contained into another with horizontal scrollbar.
      */
     public void testEdgeStabilityOnDragAndDropToContainedNode() {
         doTestEdgeStabilityOnDragAndDrop("P4", "C2", Direction.WEST, false);
@@ -372,23 +356,14 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
      * Drag and drop a source and target edge border node to another node.
      */
     public void testEdgeStabilityOnDragAndDropWithSourceAndTarget() {
-
-        final long oldTimeout = SWTBotPreferences.TIMEOUT;
-        try {
-            SWTBotPreferences.TIMEOUT = 1000;
-
+        withTimeout(1000, () -> {
             // Get bendpoints before drag and drop
             PointList originalPointsC5C6 = getBendpoints("C5", "C6");
-
             // Drag and drop C5 and C6 to package P1
             dragNorth("P1", "C5", "C6");
-
             // Check the connections bendpoints stability
             checkEdgeShiftedByVector("C5", "C6", originalPointsC5C6, EdgeRouting.MANHATTAN_LITERAL); // rectilinear
-
-        } finally {
-            SWTBotPreferences.TIMEOUT = oldTimeout;
-        }
+        });
     }
 
     /**
@@ -404,10 +379,7 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
      *            true to change edge routing style to 'Oblique'
      */
     private void doTestEdgeStabilityOnDragAndDrop(String targetElement, String elementToDrag, Direction direction, boolean changeStyle) {
-
-        final long oldTimeout = SWTBotPreferences.TIMEOUT;
-        try {
-            SWTBotPreferences.TIMEOUT = 1000;
+        withTimeout(1000, () -> {
 
             // Get bendpoints before drag and drop
             List<PointList> originalPointsList = new ArrayList<PointList>();
@@ -440,9 +412,7 @@ public class EdgeStabilityOnDragAndDropTest extends AbstractSiriusSwtBotGefTestC
                     checkUnmovedEdge(source, target, originalPoints, changeStyle ? EdgeRouting.STRAIGHT_LITERAL : EdgeRouting.MANHATTAN_LITERAL);
                 }
             }
-        } finally {
-            SWTBotPreferences.TIMEOUT = oldTimeout;
-        }
+        });
     }
 
     /**

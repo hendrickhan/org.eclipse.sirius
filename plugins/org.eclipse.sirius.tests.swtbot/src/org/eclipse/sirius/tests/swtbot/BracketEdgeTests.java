@@ -54,11 +54,9 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
 /**
- * Test brackets edge. Test edge horizontally resize, test move node, test
- * rotate to TOP/BOTTOM/LEFT/RIGHT, test zoom, test scroll, test same things in
- * container, test change source decoration in Odesign, test bracketEdge on
- * bracketEdge, test bracketEdge on standardEdge, test standard edge on
- * bracketEdge, test change lineStyle.
+ * Test brackets edge. Test edge horizontally resize, test move node, test rotate to TOP/BOTTOM/LEFT/RIGHT, test zoom,
+ * test scroll, test same things in container, test change source decoration in Odesign, test bracketEdge on
+ * bracketEdge, test bracketEdge on standardEdge, test standard edge on bracketEdge, test change lineStyle.
  *
  * Test VP-3092
  *
@@ -152,8 +150,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with source move. Resizing edge between new
-     * EClass 1 and new EClass 2.
+     * Test resizing bracket edge with source move. Resizing edge between new EClass 1 and new EClass 2.
      */
     public void testResizeBracketWithMoveSource() {
         SWTBotGefEditPart newEReference1BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_1, BracketEdgeEditPart.class);
@@ -228,8 +225,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with target move. Resizing edge between new
-     * EClass 1 and new EClass 2.
+     * Test resizing bracket edge with target move. Resizing edge between new EClass 1 and new EClass 2.
      */
     public void testResizeBracketWithMoveTarget() {
         SWTBotGefEditPart newEReference1BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_1, BracketEdgeEditPart.class);
@@ -304,8 +300,8 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with source move in container. Resizing edge
-     * between new EClass 111 and new EClass 112 in container new Package 11
+     * Test resizing bracket edge with source move in container. Resizing edge between new EClass 111 and new EClass 112
+     * in container new Package 11
      */
     public void testResizeBracketWithMoveSourceInContainer() {
         SWTBotGefEditPart newEReference111BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_111, BracketEdgeEditPart.class);
@@ -381,8 +377,8 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with target move in container. Resizing edge
-     * between new EClass 111 and new EClass 112 in container new Package 11
+     * Test resizing bracket edge with target move in container. Resizing edge between new EClass 111 and new EClass 112
+     * in container new Package 11
      */
     public void testResizeBracketWithMoveTargetInContainer() {
         SWTBotGefEditPart newEReference111BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_111, BracketEdgeEditPart.class);
@@ -457,8 +453,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with handle move. To resizing edge between new
-     * EClass 1 and new EClass 2.
+     * Test resizing bracket edge with handle move. To resizing edge between new EClass 1 and new EClass 2.
      */
     public void testResizeBracketWithHandleMove() {
         SWTBotGefEditPart newEReference1BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_1, BracketEdgeEditPart.class);
@@ -531,8 +526,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test resizing bracket edge with handle move. To resizing edge between new
-     * EClass 111 and new EClass 112.
+     * Test resizing bracket edge with handle move. To resizing edge between new EClass 111 and new EClass 112.
      */
     public void testResizeBracketWithHandleMoveInContainer() {
         SWTBotGefEditPart newEReference111BracketEdgeEditPartBot = editor.getEditPart(NEW_EREFERENCE_111, BracketEdgeEditPart.class);
@@ -605,71 +599,64 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test that rotate to top, if y value is too low, passed in to top. Select
-     * point 2 of bracket named newEReference1 and drag to right and to top.
+     * Test that rotate to top, if y value is too low, passed in to top. Select point 2 of bracket named newEReference1
+     * and drag to right and to top.
      */
     public void testRotateBracketToTop() {
         rotateBracketToTop(NEW_ECLASS_1, NEW_ECLASS_2, NEW_EREFERENCE_1);
     }
 
     /**
-     * Test that rotate to bottom, if y value is too low, passed in to bottom.
-     * Select point 4 of bracket named newEReference1 and drag to right and to
-     * bottom.
+     * Test that rotate to bottom, if y value is too low, passed in to bottom. Select point 4 of bracket named
+     * newEReference1 and drag to right and to bottom.
      */
     public void testRotateBracketToBottom() {
         rotateBracketToBottom(NEW_ECLASS_1, NEW_ECLASS_2, NEW_EREFERENCE_1);
     }
 
     /**
-     * Test that rotate to left with y value not big enough to passed in to
-     * bottom. Select point 4 of bracket named newEReference1 and drag to left
-     * and bottom.
+     * Test that rotate to left with y value not big enough to passed in to bottom. Select point 4 of bracket named
+     * newEReference1 and drag to left and bottom.
      */
     public void testRotateBracketToLeft() {
         rotateBracketToLeft(NEW_ECLASS_1, NEW_ECLASS_2, NEW_EREFERENCE_1);
     }
 
     /**
-     * Test that rotate to right with y value not big enough to passed in to
-     * bottom. Select point 4 of bracket named newEReference1 and drag to right
-     * and bottom.
+     * Test that rotate to right with y value not big enough to passed in to bottom. Select point 4 of bracket named
+     * newEReference1 and drag to right and bottom.
      */
     public void testRotateBracketToRight() {
         rotateBracketToRight(NEW_ECLASS_1, NEW_ECLASS_2, NEW_EREFERENCE_1);
     }
 
     /**
-     * Test that rotate to top in container, if y value is too low, passed in to
-     * top. Select point 2 of bracket named newEReference1 and drag to right and
-     * to top.
+     * Test that rotate to top in container, if y value is too low, passed in to top. Select point 2 of bracket named
+     * newEReference1 and drag to right and to top.
      */
     public void testRotateBracketToTopInContainer() {
         rotateBracketToTop(NEW_ECLASS_111, NEW_ECLASS_112, NEW_EREFERENCE_111);
     }
 
     /**
-     * Test that rotate to bottom in container, if y value is too low, passed in
-     * to bottom. Select point 4 of bracket named newEReference1 and drag to
-     * right and to bottom.
+     * Test that rotate to bottom in container, if y value is too low, passed in to bottom. Select point 4 of bracket
+     * named newEReference1 and drag to right and to bottom.
      */
     public void testRotateBracketToBottomInContainer() {
         rotateBracketToBottom(NEW_ECLASS_111, NEW_ECLASS_112, NEW_EREFERENCE_111);
     }
 
     /**
-     * Test that rotate to left in container with y value not big enough to
-     * passed in to bottom. Select point 4 of bracket named newEReference1 and
-     * drag to left and bottom.
+     * Test that rotate to left in container with y value not big enough to passed in to bottom. Select point 4 of
+     * bracket named newEReference1 and drag to left and bottom.
      */
     public void testRotateBracketToLeftInContainer() {
         rotateBracketToLeft(NEW_ECLASS_111, NEW_ECLASS_112, NEW_EREFERENCE_111);
     }
 
     /**
-     * Test that rotate to right in container with y value not big enough to
-     * passed in to bottom. Select point 4 of bracket named newEReference1 and
-     * drag to right and bottom.
+     * Test that rotate to right in container with y value not big enough to passed in to bottom. Select point 4 of
+     * bracket named newEReference1 and drag to right and bottom.
      */
     public void testRotateBracketToRightInContainer() {
         rotateBracketToRight(NEW_ECLASS_111, NEW_ECLASS_112, NEW_EREFERENCE_111);
@@ -851,8 +838,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Change decorators style (Start/Finish arrow) in VSM and check that
-     * modifications are changed in representation
+     * Change decorators style (Start/Finish arrow) in VSM and check that modifications are changed in representation
      */
     public void testChangeDecoratorsInOdesign() {
         changeDecorators(EdgeArrows.INPUT_FILL_CLOSED_ARROW_LITERAL);
@@ -894,8 +880,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * The property routing style must not appears in VSM and must be disabled
-     * in representation properties view.
+     * The property routing style must not appears in VSM and must be disabled in representation properties view.
      */
     public void testRoutingStyleNotAppears() {
         SWTBotVSMEditor odesignEditor = openViewpointSpecificationModel(MODELER_RESOURCE_NAME);
@@ -907,40 +892,37 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
         bot.viewByTitle(PROPERTIES).setFocus();
         // accesses to tab Decorators
         SWTBotSiriusHelper.selectPropertyTabItem(GENERAL);
-        final long previousTimeout = SWTBotPreferences.TIMEOUT;
-        SWTBotPreferences.TIMEOUT = 1000;
-        try {
-            // Check that routing style is not present
-            bot.viewByTitle(PROPERTIES).bot().radio();
-            fail("The Routing Style should not be present in VSM for bracket edge");
-        } catch (WidgetNotFoundException e) {
-            editor.show();
-            editor.setFocus();
-            // Eclipse 4.x setFocus
-            editor.click(0, 0);
-
-            initializeEdgeBracketPositionPoint(NEW_EREFERENCE_1).select();
-            propertiesBot = bot.viewByTitle(PROPERTIES);
-            SWTBotUtils.waitAllUiEvents();
-            propertiesBot.setFocus();
-            SWTBotSiriusHelper.selectPropertyTabItem("Style");
-            tree = propertiesBot.bot().tree();
-            // Test that routing style is not visible in properties view
+        withTimeout(1000, () -> {
             try {
-                tree.expandNode("Bracket Edge Style false").select().getNode("Routing Style");
-                fail("The field Routing Style should not be present in properties view for Bracket Edge");
-            } catch (WidgetNotFoundException wnfe) {
-                // No things to do
+                // Check that routing style is not present
+                bot.viewByTitle(PROPERTIES).bot().radio();
+                fail("The Routing Style should not be present in VSM for bracket edge");
+            } catch (WidgetNotFoundException e) {
+                editor.show();
+                editor.setFocus();
+                // Eclipse 4.x setFocus
+                editor.click(0, 0);
+
+                initializeEdgeBracketPositionPoint(NEW_EREFERENCE_1).select();
+                propertiesBot = bot.viewByTitle(PROPERTIES);
+                SWTBotUtils.waitAllUiEvents();
+                propertiesBot.setFocus();
+                SWTBotSiriusHelper.selectPropertyTabItem("Style");
+                SWTBotTree propsTree = propertiesBot.bot().tree();
+                // Test that routing style is not visible in properties view
+                try {
+                    propsTree.expandNode("Bracket Edge Style false").select().getNode("Routing Style");
+                    fail("The field Routing Style should not be present in properties view for Bracket Edge");
+                } catch (WidgetNotFoundException wnfe) {
+                    // No things to do
+                }
             }
-        } finally {
-            SWTBotPreferences.TIMEOUT = previousTimeout;
-        }
+        });
 
     }
 
     /**
-     * Test that source and target are inner Decoration when segment is too
-     * small.
+     * Test that source and target are inner Decoration when segment is too small.
      */
     public void testSourceTargetInnerDecorationWhenSegmentTooSmall() {
         // Retrieve Position of 6 points bracketEdge between EClass 1 and EClass
@@ -989,8 +971,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Change line style in VSM and check that modifications are changed in
-     * representation and in properties view
+     * Change line style in VSM and check that modifications are changed in representation and in properties view
      */
     public void testChangeLineStyleInOdesign() {
         SWTBotVSMEditor odesignEditor = openViewpointSpecificationModel(MODELER_RESOURCE_NAME);
@@ -1021,8 +1002,7 @@ public class BracketEdgeTests extends AbstractSiriusSwtBotGefTestCase {
     }
 
     /**
-     * Test that {@link BracketEdgeStyleDescription} is allowed in the odesign
-     * editor.
+     * Test that {@link BracketEdgeStyleDescription} is allowed in the odesign editor.
      */
     public void testBracketEdgeStyleDescriptionCreation() {
         SWTBotVSMEditor odesignEditor = openViewpointSpecificationModel(MODELER_RESOURCE_NAME);

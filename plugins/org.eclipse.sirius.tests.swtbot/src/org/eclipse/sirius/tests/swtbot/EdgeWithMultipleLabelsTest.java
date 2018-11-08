@@ -12,6 +12,8 @@
  *******************************************************************************/
 package org.eclipse.sirius.tests.swtbot;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 import org.eclipse.core.internal.runtime.InternalPlatform;
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
@@ -36,7 +38,6 @@ import org.eclipse.swt.SWTException;
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefConnectionEditPart;
 import org.eclipse.swtbot.eclipse.gef.finder.widgets.SWTBotGefEditPart;
-import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.junit.Assert;
 
@@ -109,8 +110,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create a relation based edge and validated that there are
-     * multiple labels.
+     * Test to create a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateRelationBasedEdgeStraight() {
@@ -121,8 +121,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create a relation based edge and validated that there are
-     * multiple labels.
+     * Test to create a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateRelationBasedEdgeManhattan() {
@@ -133,8 +132,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create a relation based edge and validated that there are
-     * multiple labels.
+     * Test to create a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateRelationBasedEdgeTree() {
@@ -181,8 +179,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create an element based edge and validated that there are
-     * multiple labels.
+     * Test to create an element based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateElementBasedEdgeStraight() {
@@ -193,8 +190,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create an element based edge and validated that there are
-     * multiple labels.
+     * Test to create an element based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateElementBasedEdgeManhattan() {
@@ -205,8 +201,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to create an element based edge and validated that there are
-     * multiple labels.
+     * Test to create an element based edge and validated that there are multiple labels.
      * 
      */
     public void testCreateElementBasedEdgeTree() {
@@ -253,8 +248,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete a relation based edge and validated that there are
-     * multiple labels.
+     * Test to delete a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteRelationBasedEdgeStraight() {
@@ -265,8 +259,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete a relation based edge and validated that there are
-     * multiple labels.
+     * Test to delete a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteRelationBasedEdgeManhattan() {
@@ -277,8 +270,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete a relation based edge and validated that there are
-     * multiple labels.
+     * Test to delete a relation based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteRelationBasedEdgeTree() {
@@ -326,8 +318,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete an element based edge and validated that there are
-     * multiple labels.
+     * Test to delete an element based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteElementBasedEdgeStraight() {
@@ -338,8 +329,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete an element based edge and validated that there are
-     * multiple labels.
+     * Test to delete an element based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteElementBasedEdgeManhattan() {
@@ -350,8 +340,7 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
     /**
      * 
-     * Test to delete an element based edge and validated that there are
-     * multiple labels.
+     * Test to delete an element based edge and validated that there are multiple labels.
      * 
      */
     public void testDeleteElementBasedEdgeTree() {
@@ -975,8 +964,8 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
     }
 
     /**
-     * The direct edit on begin label is not allowed, so check that it fails.
-     * The default SWTBot timeOut is reduced to consume less time.
+     * The direct edit on begin label is not allowed, so check that it fails. The default SWTBot timeOut is reduced to
+     * consume less time.
      */
     private void validateDirectEditRelationBasedEdgeBeginLabel() {
 
@@ -984,17 +973,16 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Select the begin label and focus something else
         editor.select(editor.getEditPart("EC1 begin"));
-        boolean directEdit = true;
-        final long oldTimeout = SWTBotPreferences.TIMEOUT;
-        try {
-            SWTBotPreferences.TIMEOUT = 1000;
-            directEdit = editor.directEdgeEditTypeBeginLabel("EC1", "EC3", "EClass1");
-        } catch (SWTException e) {
-            directEdit = false;
-        } finally {
-            SWTBotPreferences.TIMEOUT = oldTimeout;
-            Assert.assertFalse("The direct edit is only available on center label.", directEdit);
-        }
+        AtomicBoolean directEdit = new AtomicBoolean(true);
+        withTimeout(1000, () -> {
+            try {
+                directEdit.set(editor.directEdgeEditTypeBeginLabel("EC1", "EC3", "EClass1"));
+            } catch (SWTException e) {
+                directEdit.set(false);
+            } finally {
+                Assert.assertFalse("The direct edit is only available on center label.", directEdit.get());
+            }
+        });
         validateSelectedLabel("EC1 begin", DEdgeBeginNameEditPart.class);
         Assert.assertNotNull(editor.getEditPart("EC1 center"));
         Assert.assertNotNull(editor.getEditPart("EC1 end"));
@@ -1270,25 +1258,24 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
     }
 
     /**
-     * The direct edit on end label is not allowed, so check that it fails. The
-     * default SWTBot timeOut is reduced to consume less time.
+     * The direct edit on end label is not allowed, so check that it fails. The default SWTBot timeOut is reduced to
+     * consume less time.
      */
     private void validateDirectEditElementBasedEdgeEndLabel() {
         addWarningListener();
 
         // Select the begin label and focus something else
         editor.select(editor.getEditPart("ec2 end"));
-        boolean directEdit = true;
-        final long oldTimeout = SWTBotPreferences.TIMEOUT;
-        try {
-            SWTBotPreferences.TIMEOUT = 1000;
-            directEdit = editor.directEdgeEditTypeEndLabel("EC1", "EC2", "eclass2");
-        } catch (SWTException e) {
-            directEdit = false;
-        } finally {
-            SWTBotPreferences.TIMEOUT = oldTimeout;
-            Assert.assertFalse("The direct edit is only available on center label.", directEdit);
-        }
+        AtomicBoolean directEditScceeded = new AtomicBoolean(true);
+        withTimeout(1000, () -> {
+            try {
+                directEditScceeded.set(editor.directEdgeEditTypeEndLabel("EC1", "EC2", "eclass2"));
+            } catch (SWTException e) {
+                directEditScceeded.set(false);
+            } finally {
+                Assert.assertFalse("The direct edit is only available on center label.", directEditScceeded.get());
+            }
+        });
         Assert.assertNotNull(editor.getEditPart("ec2 begin"));
         Assert.assertNotNull(editor.getEditPart("ec2 center"));
         validateSelectedLabel("ec2 end", DEdgeEndNameEditPart.class);
