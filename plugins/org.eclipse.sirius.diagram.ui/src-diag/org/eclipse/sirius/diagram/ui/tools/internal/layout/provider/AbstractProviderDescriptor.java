@@ -93,19 +93,19 @@ public abstract class AbstractProviderDescriptor implements Comparable<AbstractP
      * Returned values according to <code>priorityString</code> value :
      * <ul>
      * <li>&quot;lowest&quot; =&gt;
-     * {@value org.eclipse.sirius.ecore.extender.business.api.accessor.ExtenderConstants#PRIORITY_LOWEST}
+     * {@value org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutConstants#LOWEST_PRIORITY}
      * </li>
      * <li>&quot;low&quot; =&gt;
-     * {@value org.eclipse.sirius.ecore.extender.business.api.accessor.ExtenderConstants#PRIORITY_LOW}
+     * {@value org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutConstants#LOW_PRIORITY}
      * </li>
      * <li>&quot;high&quot; =&gt;
-     * {@value org.eclipse.sirius.ecore.extender.business.api.accessor.ExtenderConstants#PRIORITY_HIGH}
+     * {@value org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutConstants#HIGH_PRIORITY}
      * </li>
      * <li>&quot;highest&quot; =&gt;
-     * {@value org.eclipse.sirius.ecore.extender.business.api.accessor.ExtenderConstants#PRIORITY_HIGHEST}
+     * {@value org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutConstants#HIGHEST_PRIORITY}
      * </li>
      * <li>anything else =&gt;
-     * {@value org.eclipse.sirius.ecore.extender.business.api.accessor.ExtenderConstants#PRIORITY_NORMAL}
+     * {@value org.eclipse.sirius.diagram.ui.tools.api.layout.LayoutConstants#NORMAL_PRIORITY}
      * </li>
      * </ul>
      *
