@@ -42,7 +42,7 @@ public class WorkflowPageProvider extends PageProvider {
     }
 
     @Override
-    public boolean provides(String pageId) {
+    public boolean provides(String pageId, SessionEditor editor) {
         if (pageId.startsWith(PREFIX)) {
             String sid = pageId.substring(PREFIX.length());
             return SessionManager.INSTANCE.getSessions().stream().anyMatch(s -> s.getID().equals(sid));

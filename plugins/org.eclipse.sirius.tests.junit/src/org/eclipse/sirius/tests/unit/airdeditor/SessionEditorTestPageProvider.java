@@ -182,7 +182,7 @@ public class SessionEditorTestPageProvider {
         }
 
         @Override
-        public boolean provides(String pageId) {
+        public boolean provides(String pageId, SessionEditor editor) {
             return this.newPageId.equals(pageId);
         }
 

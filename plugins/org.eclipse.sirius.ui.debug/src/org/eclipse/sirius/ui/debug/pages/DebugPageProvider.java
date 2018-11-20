@@ -41,7 +41,7 @@ public class DebugPageProvider extends PageProvider {
     }
 
     @Override
-    public boolean provides(String pageId) {
+    public boolean provides(String pageId, SessionEditor editor) {
         return DebugPage.PAGE_ID.equals(pageId);
     }
 }
