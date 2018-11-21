@@ -43,7 +43,7 @@ public abstract class AbstractExternalJavaAction implements IExternalJavaAction 
      *             if the parameter is missing or is not type-compatible with
      *             the expected type.
      */
-    protected <T> T getParameter(Map<String, Object> parameters, String name, Class<T> type) throws IllegalArgumentException {
+    protected <T> T getParameter(Map<String, Object> parameters, String name, Class<T> type) {
         return getParameter(parameters, name, type, true);
     }
 
@@ -65,7 +65,7 @@ public abstract class AbstractExternalJavaAction implements IExternalJavaAction 
      *             if the parameter is present but is not type-compatible with
      *             the expected type.
      */
-    protected <T> T getOptionalParameter(Map<String, Object> parameters, String name, Class<T> type) throws IllegalArgumentException {
+    protected <T> T getOptionalParameter(Map<String, Object> parameters, String name, Class<T> type) {
         return getParameter(parameters, name, type, false);
     }
 
