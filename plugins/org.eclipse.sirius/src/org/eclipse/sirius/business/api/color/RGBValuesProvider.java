@@ -169,10 +169,10 @@ public class RGBValuesProvider {
             closestUpperBound = Integer.valueOf(closestLowerBound.intValue() + 1);
         }
         if (value.intValue() < closestLowerBound.intValue()) {
-            value = Integer.valueOf(closestLowerBound.intValue());
+            value = closestLowerBound;
         }
         if (value.intValue() > closestUpperBound.intValue()) {
-            value = Integer.valueOf(closestUpperBound.intValue());
+            value = closestUpperBound;
         }
 
         if (closestUpperBound <= closestLowerBound) {
@@ -205,10 +205,10 @@ public class RGBValuesProvider {
             max = Integer.valueOf(min.intValue() + 1);
         }
         if (value.intValue() < min.intValue()) {
-            value = Integer.valueOf(min.intValue());
+            value = min;
         }
         if (value.intValue() > max.intValue()) {
-            value = Integer.valueOf(max.intValue());
+            value = max;
         }
 
         if (max <= min) {
