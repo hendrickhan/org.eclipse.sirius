@@ -928,9 +928,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -943,9 +943,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -958,9 +958,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1046,9 +1046,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1061,9 +1061,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1076,9 +1076,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditRelationBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     private void validateDirectEditRelationBasedEdgeEndLabel() {
@@ -1111,9 +1111,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1126,9 +1126,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1141,9 +1141,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeBeginLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     private void validateDirectEditElementBasedEdgeBeginLabel() {
@@ -1222,9 +1222,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1237,9 +1237,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**
@@ -1252,9 +1252,9 @@ public class EdgeWithMultipleLabelsTest extends AbstractSiriusSwtBotGefTestCase 
 
         // Disables the "Error Log" view because if the test is ok we have an
         // error
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         validateDirectEditElementBasedEdgeEndLabel();
-        setErrorCatchActive(true);
+        problemsListener.setErrorCatchActive(true);
     }
 
     /**

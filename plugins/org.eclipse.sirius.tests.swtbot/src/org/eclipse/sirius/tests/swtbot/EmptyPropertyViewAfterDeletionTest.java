@@ -166,7 +166,7 @@ public class EmptyPropertyViewAfterDeletionTest extends AbstractSiriusSwtBotGefT
         checkNotEmptyPropertyTabs();
 
         // Delete when VP-2014 will be resolved
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
         // Redo
         redo();
 
@@ -248,7 +248,7 @@ public class EmptyPropertyViewAfterDeletionTest extends AbstractSiriusSwtBotGefT
         checkNotEmptyPropertyTabs();
 
         // Delete when VP-2014 will be resolved
-        setErrorCatchActive(false);
+        problemsListener.setErrorCatchActive(false);
 
         // Redo
         redo();
