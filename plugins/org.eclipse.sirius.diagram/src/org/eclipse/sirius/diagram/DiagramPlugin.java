@@ -88,7 +88,7 @@ public class DiagramPlugin extends EMFPlugin {
         /**
          * A map associating a {@link DDiagram} to its {@link ToolManagement}.
          */
-        Map<DDiagram, ToolManagement> toolManagementMap;
+        private Map<DDiagram, ToolManagement> toolManagementMap;
 
         /**
          * Creates an instance.
