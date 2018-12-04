@@ -16,27 +16,27 @@ import org.eclipse.sirius.tests.SiriusTestsPlugin;
 
 public interface DnDModel {
 
-    public static final String PATH = "/data/tree/unit/dnd/vp926/";
+    String PATH = "/data/tree/unit/dnd/vp926/";
 
-    public static final String SEMANTIC_MODEL_FILENAME_1 = "company1.xmi";
+    String SEMANTIC_MODEL_FILENAME_1 = "company1.xmi";
 
-    public static final String SEMANTIC_MODEL_FILENAME_2 = "company2.xmi";
+    String SEMANTIC_MODEL_FILENAME_2 = "company2.xmi";
 
-    public static final String SEMANTIC_META_MODEL_FILENAME = "vp926.ecore";
+    String SEMANTIC_META_MODEL_FILENAME = "vp926.ecore";
 
-    public static final String SESSION_MODEL_FILENAME = "vp926.aird";
+    String SESSION_MODEL_FILENAME = "vp926.aird";
 
-    public static final String MODELER_MODEL_FILENAME = "vp926.odesign";
+    String MODELER_MODEL_FILENAME = "vp926.odesign";
 
-    public static final String REPRESENTATION_NAME = "Tree With DnD";
+    String REPRESENTATION_NAME = "Tree With DnD";
 
-    public static final String SEMANTIC_META_MODEL_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_META_MODEL_FILENAME;
+    String SEMANTIC_META_MODEL_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_META_MODEL_FILENAME;
 
-    public static final String SEMANTIC_MODEL_1_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_MODEL_FILENAME_1;
+    String SEMANTIC_MODEL_1_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_MODEL_FILENAME_1;
 
-    public static final String SEMANTIC_MODEL_2_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_MODEL_FILENAME_2;
+    String SEMANTIC_MODEL_2_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SEMANTIC_MODEL_FILENAME_2;
 
-    public static final String MODELER_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + MODELER_MODEL_FILENAME;
+    String MODELER_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + MODELER_MODEL_FILENAME;
 
-    public static final String SESSION_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SESSION_MODEL_FILENAME;
+    String SESSION_PATH = "/" + SiriusTestsPlugin.PLUGIN_ID + PATH + SESSION_MODEL_FILENAME;
 }
