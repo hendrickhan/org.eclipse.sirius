@@ -12,7 +12,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.diagram.ui.tools.internal.layout;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.gef.ConnectionEditPart;
@@ -34,7 +34,7 @@ import com.google.common.collect.Iterables;
  */
 public class IsPinnedPredicate implements Predicate<IGraphicalEditPart> {
 
-    ArrayList<IDiagramElementEditPart> elementsToKeepFixed;
+    private final List<IDiagramElementEditPart> elementsToKeepFixed;
 
     /**
      * Default constructor.
@@ -43,7 +43,7 @@ public class IsPinnedPredicate implements Predicate<IGraphicalEditPart> {
      *            IDiagramElementEditPart which are not actually pinned but have
      *            to stay fixed.
      */
-    protected IsPinnedPredicate(ArrayList<IDiagramElementEditPart> elementsToKeepFixed) {
+    protected IsPinnedPredicate(List<IDiagramElementEditPart> elementsToKeepFixed) {
         this.elementsToKeepFixed = elementsToKeepFixed;
     }
 

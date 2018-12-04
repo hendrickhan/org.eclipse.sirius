@@ -176,7 +176,7 @@ public class PinnedElementsHandler {
      * IDiagramElementEditPart which are not actually pinned but have to stay
      * fixed.
      */
-    private ArrayList<IDiagramElementEditPart> elementsToKeepFixed;
+    private List<IDiagramElementEditPart> elementsToKeepFixed;
 
     /**
      * Creates a new resolver.
