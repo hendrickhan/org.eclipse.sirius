@@ -141,7 +141,7 @@ public class ChildrenAdjustmentCommand extends AbstractTransactionalCommand {
 
     @Override
     public boolean canUndo() {
-        if (wrappedCommand.size() > 0 && wrappedCommand != null) {
+        if (wrappedCommand != null && wrappedCommand.size() > 0) {
             return wrappedCommand.canUndo();
         }
         return true;
@@ -149,7 +149,7 @@ public class ChildrenAdjustmentCommand extends AbstractTransactionalCommand {
 
     @Override
     public boolean canRedo() {
-        if (wrappedCommand.size() > 0 && wrappedCommand != null) {
+        if (wrappedCommand != null && wrappedCommand.size() > 0) {
             return wrappedCommand.canRedo();
         }
         return true;
